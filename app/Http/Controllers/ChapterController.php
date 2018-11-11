@@ -10,7 +10,12 @@ class ChapterController extends Controller
 {
     public function chapter($id)
     {
-        $sections = DB::table('sections')->where('chapter_id',$id)->get();
+        $sections = DB::table('sections')
+            ->join('chapter_section','sections.id','=','chapter_section.section_id')
+            ->join('chapters','chapters.id','=','chapter_section.chapter_id')
+            ->select('sections.title','sections.detail')
+            ->where('chapters.id','=',$id)
+            ->orderBy('sections.rank')->get();
         return view('chapter', compact('sections'));
     }//
 }

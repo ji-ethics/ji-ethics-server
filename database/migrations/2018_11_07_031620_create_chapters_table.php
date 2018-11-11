@@ -14,10 +14,10 @@ class CreateChaptersTable extends Migration
     public function up()
     {
         Schema::create('chapters', function (Blueprint $table) {
-            $table->integer('id');
-            $table->integer('section_id')->unsigned()->index();
+            $table->integer('id')->unsigned();
+            $table->text('title');
             $table->timestamps();
-            $table->primary(['id', 'section_id']);
+            $table->primary('id');
         });
     }
 

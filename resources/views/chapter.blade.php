@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Study Page</title>
-    <link rel="stylesheet" href="public/bootstrap.css">
-
+    <link rel="stylesheet" href="{{URL::asset('/bootstrap.css')}}">
 </head>
 <body>
 
-<?php
-//include_once('PHP_Navigationbar.php');
-//?>
+
+
 <div class = "row">
     <div class="col-md-2"></div>
     <div class="col-md-2">
@@ -45,12 +43,12 @@
     </div>
     <div class="col-md-6">
         <?php
-
+        $data = json_decode($sections, true);
 
         //print
         echo "<h1>Chapter1. Introduction: Engineering Ethics from a Global Perspective</h1>";
 
-        foreach ($sections as $key => $value)
+        foreach ($data as $key => $value)
         {
             $results = $value["title"];
             echo "<h4>$results</h4>";
@@ -70,8 +68,6 @@
         </div>
     </div>
 </div>
-<?php
-//include_once('Footer.php');
-//?>
+
 </body>
 </html>
