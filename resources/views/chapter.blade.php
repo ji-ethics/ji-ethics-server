@@ -18,24 +18,44 @@
 
                 <h2>Chapters</h2>
                 <ul>
+                    <?php
+                        $sections1 = json_decode($sections, true);
+                        $sections_title = json_decode($sections_title, true);
+                        $chapters = json_decode($chapters, true);
+                        //var_dump($sections[0]["chapter_id"]);
+                    echo "<li>";
+                        foreach ($chapters as $ch_value)
+                            {
+                                $chapter_id = $ch_value["id"];
+                                $title = $ch_value["title"];
+                                echo "<li><a href = \"#\">Chapter .$chapter_id./..$title</a></li>";
+                                echo "<li>";
+                                foreach ($sections_title as $se_value)
+                                {
+                                    if ($chapter_id == $sections1[0]["chapter_id"]){
+                                        $section_rank = $se_value["rank"];
+                                        $section_title = $se_value["title"];
+                                        if ($se_value["rank"] == $sections1[0]["rank"]){
+                                            echo "<li><mark><a href = \"#\">Section .$section_rank./..$section_title</a></mark></li>";
+                                        }
+                                        else{
+                                            echo "<li><a href = \"#\">Section .$section_rank./..$section_title</a></li>";
+                                        }
+                                    }
+                                }
+                                echo "</li>";
+                            }
+                    echo "</li>";
+                    ?>
+                        <!--foreach ($data as $key => $value)
+                        {
+                            $section_id = $value["rank"];
+                            $title = $value["title"];
+                            echo "<li><a href = \"#\">Chapter .$section_id./..$title</a></li>";
+                        }-->
 
-                    <li><a href="#">Chapter 1</a></li>
-                    <li><a href="#">Chapter 2</a></li>
-                    <li><a href="#">Chapter 3</a></li>
-                    <li><a href="#">Chapter 4</a></li>
-                    <li><a href="#">Chapter 5</a></li>
-                    <li><a href="#">Chapter 6</a></li>
-                    <li><a href="#">Chapter 7</a></li>
-                    <li><a href="#">Chapter 8</a></li>
-                    <li><a href="#">Chapter 9</a></li>
-                    <li><a href="#">Chapter 10</a></li>
                 </ul>
-                <h2>Appendix</h2>
-                <ul>
-                    <li><a href="#">Appendix I</a></li>
-                    <li><a href="#">Appendix II</a></li>
-                    <li><a href="#">Appendix III</a></li>
-                </ul>
+
 
             </div>
         </div>
@@ -43,29 +63,40 @@
     </div>
     <div class="col-md-6">
         <?php
-        $data = json_decode($sections, true);
+        $sections2 = json_decode($sections, true);
 
         //print
         echo "<h1>Chapter1. Introduction: Engineering Ethics from a Global Perspective</h1>";
 
-        foreach ($data as $key => $value)
-        {
-            $results = $value["title"];
-            echo "<h4>$results</h4>";
-            $details = $value["detail"];
-            echo "<p>$details</p>";
-        }
+        foreach ($sections2 as $se_value)
+            {
+                    $detail = $se_value["detail"];
+                    $title = $se_value["title"];
+                    echo "<h2>$title</h2>";
+                    echo "<p>$detail</p>";
+            }
         ?>
-        <div padding>
-            <a href="PHP_Homepage.php"><button class="btn btn-default" type="submit" style="margin-right:150px">Return</button></a>
-            <a href="Exercise.php"><button class="btn btn-default" type="submit" style="...">Exercise</button></a>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div padding class = "text-center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">back</span>
+                            </a>
 
-        </div>
+                            <a href="StudyPage2.php" aria-label="Next">
+                                <span aria-hidden="true">next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </div>
     </div>
 </div>
 

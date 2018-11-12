@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chapter/{id}', 'ChapterController@chapter');
+Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
