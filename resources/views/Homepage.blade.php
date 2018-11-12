@@ -1,7 +1,18 @@
+<!DOCTYPE html><html lang="en">
+<head>
 
-@extends('layout')
+    <meta charset="UTF-8">
 
-@section('content')
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+</head>
+
+<body>
+@include('Header')
 
 
 <div class="jumbotron">
@@ -16,7 +27,7 @@
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="thumbnail">
-            <img src="../../public/image/200_200.jpg" height="200" width="200" alt="img-thumbnail"/>
+            <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
             <div class="caption">
                 <h3>News</h3>
                 <p>The recent new about VG496</p>
@@ -27,7 +38,7 @@
 
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="thumbnail">
-            <img src="../../public/image/200_200.jpg" height="200" width="200" alt="img-thumbnail"/>
+            <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
             <div class="caption">
                 <h3>Study</h3>
 <!--                <?php
@@ -47,6 +58,7 @@
     </div>
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
+@include('Footer')
+</body>
 
-
-@endsection
+</html>
