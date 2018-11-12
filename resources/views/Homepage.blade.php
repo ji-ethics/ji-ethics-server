@@ -27,7 +27,7 @@
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="thumbnail">
-            <img src="../../public/image/200_200.jpg" height="200" width="200" alt="img-thumbnail"/>
+            <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
             <div class="caption">
                 <h3>News</h3>
                 <p>The recent new about VG496</p>
@@ -38,7 +38,7 @@
 
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="thumbnail">
-            <img src="../../public/image/200_200.jpg" height="200" width="200" alt="img-thumbnail"/>
+            <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
             <div class="caption">
                 <h3>Study</h3>
 <!--                <?php
