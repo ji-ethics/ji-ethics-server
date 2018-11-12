@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
+Route::get('homepage', function () {
+    return view('Homepage');
+});
+
+Route::get('chapter/{id}', 'ChapterController@chapter');
