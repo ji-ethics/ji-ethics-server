@@ -1,16 +1,6 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../../public/bootstrap.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
 
 
-
-<body>
 
     <nav class="navbar navbar-default ">
         <div class="container-fluid">
@@ -50,16 +40,6 @@
     </nav>
 
 
-</body>
-
-<div class="row">
-    <div class="col-xs-1 col-sm-2 col-md-2"></div>
-
-    <div class="col-xs-1 col-sm-2 col-md-2"></div>
 
 
 
-
-</div>
-
-</html>

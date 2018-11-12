@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../../public/bootstrap.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-</head>
-<body>
 
-<?php
-include_once('Header.blade.php');
-?>
+@extends('layout')
+
+@section('content')
+
 
 <div class="jumbotron">
     <div class="container">
@@ -56,7 +47,5 @@ include_once('Header.blade.php');
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
 
-<?php
-include_once('Footer.blade.php');
-?>
-</body>
+
+@endsection
