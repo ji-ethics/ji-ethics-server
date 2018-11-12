@@ -1,7 +1,15 @@
+<!DOCTYPE html><html lang="en">
+<head>
 
-@extends('layout')
+    <meta charset="UTF-8">
 
-@section('content')
+    <link rel="stylesheet" href="{{ URL::asset('/bootstrap.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+</head>
+
+<body>
+@include('Header')
 
 
 <div class="jumbotron">
@@ -47,6 +55,7 @@
     </div>
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
+@include('Footer')
+</body>
 
-
-@endsection
+</html>
