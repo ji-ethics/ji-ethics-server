@@ -23,7 +23,7 @@
         <div class="col-xs-12 col-sm-8 col-md-8">
 
             <input name="_tabken" value="{{csrf_token()}}" type="hidden">
-            <form action="/list_chapter" method="post">
+            <form action="/list_chapter" method="POST">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Chapter ID</label>
