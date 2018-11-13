@@ -28,5 +28,5 @@ class ChapterController extends Controller
             ->where('chapter_section.chapter_id','=',$id)
             ->orderBy('sections.rank')->get();
         return view('chapter', compact('sections','chapters','sections_title'));
-    }//
+    }
 }

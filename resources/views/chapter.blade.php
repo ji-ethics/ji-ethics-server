@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Study Page</title>
-    <link rel="stylesheet" href="{{URL::asset('/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-
+@include('Header')
 
 <div class = "row">
     <div class="col-md-2"></div>
@@ -39,7 +43,7 @@
                                             echo "<li><mark><a href = \"#\">Section .$section_rank./..$section_title</a></mark></li>";
                                         }
                                         else{
-                                            echo "<li><a href = \"#\">Section .$section_rank./..$section_title</a></li>";
+                                            echo "<li><a href = \"{{URL(\'chapter/1/section/2\')}}\">Section .$section_rank./..$section_title</a></li>";
                                         }
                                     }
                                 }
@@ -100,5 +104,8 @@
     </div>
 </div>
 
+@include('Footer')
+
 </body>
 </html>
+
