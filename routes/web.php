@@ -19,5 +19,16 @@ Route::get('homepage', function () {
     return view('Homepage');
 });
 
+Route::get('admin', function () {
+    return view('administer_main');
+});
+
+Route::get('admin/material', function () {
+    return view('administer_material_section');
+});
+
+
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
+
+Route::post('/list_chapter', 'ListChapterController@listchapter');
 
