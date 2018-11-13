@@ -24,7 +24,7 @@ class ChapterController extends Controller
 
         $sections_title = DB::table('sections')
             ->join('chapter_section','sections.id','=','chapter_section.section_id')
-            ->select('sections.rank','sections.title')
+            ->select('sections.rank','sections.title','sections.id')
             ->where('chapter_section.chapter_id','=',$id)
             ->orderBy('sections.rank')->get();
 
