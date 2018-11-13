@@ -13,7 +13,7 @@ class ChapterController extends Controller
         $sections = DB::table('sections')
             ->join('chapter_section','sections.id','=','chapter_section.section_id')
             ->join('chapters','chapters.id','=','chapter_section.chapter_id')
-            ->select('chapters.id as chapter_id','sections.title','sections.detail','sections.rank')
+            ->select('chapters.id as chapter_id','sections.title','sections.detail','sections.rank','sections.id')
             ->where('chapters.id','=',$id)
             ->where('sections.rank','=',$section_rank)
             ->orderBy('sections.rank')->get();
@@ -27,6 +27,12 @@ class ChapterController extends Controller
             ->select('sections.rank','sections.title')
             ->where('chapter_section.chapter_id','=',$id)
             ->orderBy('sections.rank')->get();
-        return view('chapter', compact('sections','chapters','sections_title'));
+
+        $chapter_section = DB::table('chapter_section')
+            ->join('sections','chapter_section.section_id','=','sections.id')
+            ->select('sections.rank as section_rank','chapter_section.chapter_id','chapter_section.section_id')
+            ->orderBy('sections.id')->get();
+
+        return view('chapter', compact('sections','chapters','sections_title','chapter_section'));
     }
 }

@@ -68,29 +68,47 @@
     <div class="col-md-6">
         <?php
         $sections2 = json_decode($sections, true);
-
         //print
         echo "<h1>Chapter1. Introduction: Engineering Ethics from a Global Perspective</h1>";
 
         foreach ($sections2 as $se_value)
-            {
-                    $detail = $se_value["detail"];
-                    $title = $se_value["title"];
-                    echo "<h2>$title</h2>";
-                    echo "<p>$detail</p>";
-            }
+        {
+            $detail = $se_value["detail"];
+            $title = $se_value["title"];
+            echo "<h2>$title</h2>";
+            echo "<p>$detail</p>";
+        }
+
         ?>
             <div padding class = "text-center">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">back</span>
-                            </a>
+                            <?php
+                            $sections3 = json_decode($sections, true);
+                            $chapter_section = json_decode($chapter_section, true);
+                            foreach ($chapter_section as $ch_sec_value)
+                            {
+                                if ($ch_sec_value['section_id'] == $sections3[0]['id']-1)
+                                    {
+                                        $chapter_pre = $ch_sec_value['chapter_id'];
+                                        $section_pre = $ch_sec_value['section_id'];
+                                    }
+                                elseif ($ch_sec_value['section_id'] == $sections3[0]['id']+1)
+                                    {
+                                        $chapter_next = $ch_sec_value['chapter_id'];
+                                        $section_next = $ch_sec_value['section_id'];
+                                    }
+                            }
 
-                            <a href="StudyPage2.php" aria-label="Next">
-                                <span aria-hidden="true">next</span>
-                            </a>
+                            echo "<a href=\"'chapter/'.$chapter_pre.'/section/'.$section_pre\" aria-label=\"Previous\">";
+                            echo "<span aria-hidden=\"true\">previous</span>";
+                            echo "</a>";
+
+                            echo "<a href=\"'chapter/'.$chapter_next.'/section/'.$section_next\" aria-label=\"Next\">";
+                            echo "<span aria-hidden=\"true\">next</span>";
+                            echo "</a>";
+                            ?>
                         </li>
                     </ul>
                 </nav>
