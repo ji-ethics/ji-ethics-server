@@ -12,8 +12,8 @@ class ListChapterController extends Controller
 {
     public function listchapter()
     {
-        $res = Post::create(request(['title']));
-        $id=$res;
+
+        $id=$_POST['title'];
 
         $sections = DB::table('sections')
             ->join('chapter_section','sections.id','=','chapter_section.section_id')
@@ -37,11 +37,12 @@ class ListChapterController extends Controller
             ->select('sections.rank as section_rank','chapter_section.chapter_id','chapter_section.section_id')
             ->orderBy('sections.id')->get();
 
-        return view('chapter', compact('sections','chapters','sections_title','chapter_section','id'));
+        return view('administer_material_submit', compact('sections','chapters','sections_title','chapter_section','id'));
     }
 }
+
 class Post extends Model
 {
-    protected $guarded = []; //不允许注入的字段:空数组表示允许所有
-// protected $fillable = ['title', 'content']; // 可以注入的数据字段
+    protected $guarded = [];
+//
 }
