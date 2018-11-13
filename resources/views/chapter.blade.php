@@ -48,17 +48,19 @@
                                         $section_title = $se_value["title"];
                                         if ($se_value["rank"] == $sections1[0]["rank"]){
                                             $link2 = url("/chapter/$chapter_id/section/$section_rank");
-                                            echo "<li><a href = $link2><mark>Section $section_rank. <br>$section_title</mark></a></li>";
+                                            echo "<li><a href = $link2><mark>$section_title</mark></a></li>";
                                         }
                                         else{
                                             $link3 = url("/chapter/$chapter_id/section/$section_rank");
-                                            echo "<li><a href = $link3>Section $section_rank. <br>$section_title</a></li>";
+                                            echo "<li><a href = $link3>$section_title</a></li>";
                                         }
                                     }
                                 }
                                 echo "</ul>";
+
                                 echo "</li>";
                             }
+                    echo "<br/>";
                     echo "</li>";
                     ?>
                         <!--foreach ($data as $key => $value)
@@ -78,6 +80,7 @@
     <div class="col-md-6">
         <?php
         $sections2 = json_decode($sections, true);
+        $section_question = json_decode($section_question, true);
         //print
 
         foreach ($sections2 as $se_value)
@@ -86,8 +89,21 @@
             $title = $se_value["title"];
             echo "<h2>$title</h2>";
             echo "<p>$detail</p>";
+            echo "<br/>";
         }
+        foreach ($section_question as $ques_value)
+        {
+            $ques_id = $ques_value["question_id"];
+            $ques_detail = $ques_value["question"];
 
+            echo "<label for=\"exampleInputEmail1\">Question $ques_id. $ques_detail</label>";
+            echo "<div class=\"form-group\">";
+            echo "<input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"In put your Answer\">";
+            echo "</div>";
+            echo "<br/>";
+            echo "</form>";
+
+        }
         ?>
             <div padding class = "text-center">
                 <nav aria-label="Page navigation">

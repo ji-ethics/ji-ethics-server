@@ -33,6 +33,15 @@ class ChapterController extends Controller
             ->select('sections.rank as section_rank','chapter_section.chapter_id','chapter_section.section_id')
             ->orderBy('sections.id')->get();
 
-        return view('chapter', compact('sections','chapters','sections_title','chapter_section'));
+        $section_question = DB::table('section_question')
+            ->join('sections','section_question.section_id','=','sections.id')
+            ->join('chapter_section','sections.id','=','chapter_section.section_id')
+            ->select('section_question.question_id','section_question.question')
+            ->where('chapter_section.chapter_id','=',$id)
+            ->where('sections.rank','=',$section_rank)
+            ->orderBy('section_question.question_id')->get();
+
+
+        return view('chapter', compact('sections','chapters','sections_title','chapter_section','section_question'));
     }
 }
