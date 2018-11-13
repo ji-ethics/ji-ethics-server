@@ -43,7 +43,8 @@
                                             echo "<li><mark><a href = \"#\">Section .$section_rank./..$section_title</a></mark></li>";
                                         }
                                         else{
-                                            echo "<li><a href = \"{{URL(\'chapter/1/section/2\')}}\">Section .$section_rank./..$section_title</a></li>";
+                                            $tmp = url("/chapter/1/section/2");
+                                            echo "<li><a href = $tmp>Section .$section_rank./..$section_title</a></li>";
                                         }
                                     }
                                 }
@@ -101,11 +102,11 @@
                                     }
                             }
 
-                            echo "<a href=\"'chapter/'.$chapter_pre.'/section/'.$section_pre\" aria-label=\"Previous\">";
+                            //echo "<a href=\"'chapter/'.$chapter_pre.'/section/'.$section_pre\" aria-label=\"Previous\">";
                             echo "<span aria-hidden=\"true\">previous</span>";
                             echo "</a>";
 
-                            echo "<a href=\"'chapter/'.$chapter_next.'/section/'.$section_next\" aria-label=\"Next\">";
+                            //echo "<a href=\"'chapter/'.$chapter_next.'/section/'.$section_next\" aria-label=\"Next\">";
                             echo "<span aria-hidden=\"true\">next</span>";
                             echo "</a>";
                             ?>
