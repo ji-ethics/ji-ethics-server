@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStudyprocessUserTable extends Migration
+class CreateRegisterFieldTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateStudyprocessUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('studyprocess_user', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned;
-            $table->integer('chapter_id')->unsigned;
-            $table->primary(['user_id', 'chapter_id']);
-            $table->timestamps();
+        Schema::create('register_field', function (Blueprint $table) {
+            $table->increments('id');
+            $table->char('name',100);
         });
     }
 
@@ -28,6 +26,6 @@ class CreateStudyprocessUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('studyprocess_user');
+        Schema::dropIfExists('register_field');
     }
 }
