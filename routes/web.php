@@ -32,3 +32,4 @@ Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
+Route::get('surveys/{id}','SurveyController@survey');
