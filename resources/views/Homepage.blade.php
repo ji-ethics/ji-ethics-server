@@ -50,7 +50,7 @@
 //                        echo "<p>You are going to study chapter $chapter</p>";
 //                    }
 //                ?>
-                    -->
+
 
                 <p><a href="#" class="btn btn-primary" role="button">Go Study</a> </p>
             </div>
