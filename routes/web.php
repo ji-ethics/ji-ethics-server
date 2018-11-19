@@ -15,4 +15,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chapter/{id}', 'ChapterController@chapter');
+Route::get('homepage', function () {
+    return view('Homepage');
+});
+
+Route::get('admin', function () {
+    return view('administer_main');
+});
+
+Route::get('admin/material', function () {
+    return view('administer_material_section');
+});
+
+Route::get('register', function () {
+    return view('register');
+});
+
+Route::get('register/agreement', function () {
+    return view('register_agreement');
+});
+
+Route::get('register/info1','registerinfo1@nationality');
+
+Route::get('register/info2','registerinfo2@language');
+
+Route::get('register/info3','registerinfo3@education');
+
+Route::get('register/info4', function () {
+    return view('register_info4');
+});
+
+Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
+
+Route::post('/list_chapter', 'ListChapterController@listchapter');
+
