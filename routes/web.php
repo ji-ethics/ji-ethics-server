@@ -32,21 +32,3 @@ Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
-Route::get('register', function () {
-    return view('register');
-});
-
-Route::get('register/agreement', function () {
-    return view('register_agreement');
-});
-
-Route::get('register/info1','registerinfo1@nationality');
-
-Route::get('register/info2','registerinfo2@language');
-
-Route::get('register/info3','registerinfo3@education');
-
-Route::get('register/info4', function () {
-    return view('register_info4');
-});
-
