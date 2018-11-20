@@ -27,25 +27,24 @@
 
                 <?php
                 $sections1 = json_decode($sections, true);
-                $sections_title = json_decode($sections_title, true);
-                $chapters = json_decode($chapters, true);
+//                $sections_title = json_decode($sections_title, true);
+//                $chapters1 = json_decode($chapters, true);
+                $selectid = $sections1;
                 //var_dump($sections[0]["chapter_id"]);
                 echo "<div class=\"form-group\">";
-                    echo"<label>Chatper $id</label>";
-                    echo"<input name=\"title\" type=\"text\" class=\"form-control\" placeholder=\"Chapter $id\">";
+                    echo"<label>Chapter id</label>";
+                    echo"<input name=\"title\" type=\"text\" class=\"form-control\" placeholder=\"$selectid\">";
                 echo"</div>";
 
-                foreach ($chapters as $ch_value)
+                foreach ($sections1 as $ch_value)
                 {
-                    $chapter_id = $ch_value["id"];
                     $title = $ch_value["title"];
                     $detail = $ch_value["detail"];
+                    $chapter_id=$ch_value["detail"];
 
-                    foreach ($sections_title as $se_value)
-                    {
-                        if ($chapter_id == $id){
-                            $section_rank = $se_value["rank"];
-                            $section_title = $se_value["title"];
+                        if ($chapter_id == $selectid){
+                            $section_rank = $ch_value["rank"];
+                            $section_title = $ch_value["title"];
                             echo "<div class=\"form-group\">";
                                 echo"<label>section $section_rank</label>";
                                 echo"<input name=\"section\" type=\"text\" class=\"form-control\" placeholder=\"section $section_rank\">";
@@ -59,7 +58,7 @@
                                 echo"<input name=\"sectiondetail\" textarea id=\"content\" style=\"height:400px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"$section_detail\">";
                             echo"</div>";
                         }
-                    }
+
                    echo"<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
                 }
 
