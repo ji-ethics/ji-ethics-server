@@ -59,7 +59,7 @@
                     <h3>Survey Management</h3>
                     <p>Adjusting the Survey question</p>
                     <?php
-                    $tmp3 = url("/admin/material");
+                    $tmp3 = url("/admin/data");
                     echo "<p><a href = $tmp3  class=\"btn btn-primary\" role=\"button\">Check</a></p>"
 
                     ?>

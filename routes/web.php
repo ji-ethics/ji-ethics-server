@@ -25,6 +25,10 @@ Route::get('admin', function () {
     return view('administer_main');
 });
 
+Route::get('admin/data', function () {
+    return view('administer_data_show');
+});
+
 Route::get('admin/material', function () {
     return view('administer_material_section');
 });
