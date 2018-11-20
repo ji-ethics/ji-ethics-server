@@ -29,21 +29,23 @@
                     <label>Chapter ID</label>
                     <input name="title" type="text" class="form-control" placeholder="Chapter ID">
                 </div>
+                <div class="form-group">
+                    <label>Section ID</label>
+                    <input name="title" type="text" class="form-control" placeholder="Section ID">
+                </div>
 
-                <button type="submit" class="btn btn-default">Go To</button>
-                <?php
-                    $templink= url("/admin/material/add");
-                echo"<a class=\"btn btn-default\" href=\"$templink\" role=\"button\">Add new section</a>";
-                ?>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+
             </form>
             <br>
         </div>
 
-        </div>
-
-
-        <div class="col-xs-1 col-sm-2 col-md-2"></div>
     </div>
+
+
+    <div class="col-xs-1 col-sm-2 col-md-2"></div>
+</div>
 </div>
 </body>
 

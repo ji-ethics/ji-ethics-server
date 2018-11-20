@@ -19,6 +19,8 @@ Route::get('homepage', function () {
     return view('Homepage');
 });
 
+
+//route for the admin
 Route::get('admin', function () {
     return view('administer_main');
 });
@@ -27,8 +29,15 @@ Route::get('admin/material', function () {
     return view('administer_material_section');
 });
 
+Route::get('admin/material/add', function () {
+    return view('administer_material_add');
+});
+
+//route for chapter
 
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
+
+//route for post
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
