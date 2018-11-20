@@ -75,7 +75,7 @@
 
                 <p>Data Analysis Check</p>
                 <?php
-                $tmp4= url("/admin/user");
+                $tmp4= url("/admin/data");
                 echo "<p><a href = $tmp4  class=\"btn btn-primary\" role=\"button\">Data Analysis Result</a></p>"
 
                 ?>
