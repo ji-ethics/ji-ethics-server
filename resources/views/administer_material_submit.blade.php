@@ -59,7 +59,7 @@
                     echo "<div class=\"form-group\">";
                         echo"<label>section detail</label>";
                         echo"<textarea name=\"sectiondetail\"  id=\"content\" style=\"height:400px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"section_detail\">";
-                        echo"$section_detail";
+                        echo htmlspecialchars($section_detail);
                         echo"</textarea>";
                         echo"</div>";
                     echo"<br/>";
