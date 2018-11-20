@@ -12,7 +12,7 @@
 </head>
 <body>
 
-@include('Header')
+@include('Header1')
 
 <div class = "row">
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>

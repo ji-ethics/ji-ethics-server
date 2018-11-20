@@ -18,8 +18,13 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Welcome</h1>
-        <p>This test will help you to learn your ethical view</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Start Testing</a></p>
+        <p>This is a study webpage for you to learn and test engineering ethics. You can first do the following survey to have a primary impression.</p>
+
+        <?php
+        $link_survey = url('/surveys/1');
+        echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Start The Survey</a></p>";
+        ?>
+
     </div>
 </div>
 
@@ -29,9 +34,11 @@
         <div class="thumbnail">
             <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
             <div class="caption">
+                <div class="text-center">
                 <h3>News</h3>
                 <p>The recent new about VG496</p>
-                <p><a href="#" class="btn btn-primary" role="button">Learn More</a> </p>
+                <p><a class="btn btn-primary" role="button">Learn More</a> </p>
+                </div>
             </div>
         </div>
     </div>
@@ -39,21 +46,24 @@
     <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="thumbnail">
             <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
-            <div class="caption">
-                <h3>Study</h3>
-<!--                <?php
-//                    // read the study progress
-//                    $json_string = file_get_contents('database/studyprogress.json');
-//                    $data = json_decode($json_string,true);
-//                    foreach ($data["study_progress"] as $key => $value) {
-//                        $chapter =  $value["chapter_id"];
-//                        echo "<p>You are going to study chapter $chapter</p>";
-//                    }
-//                ?>
+            <?php
+            echo"<div class=\"caption\">";
+
+                echo"<div class=\"text-center\">";
+
+                echo"<h3>Study</h3>";
 
 
-                <p><a href="#" class="btn btn-primary" role="button">Go Study</a> </p>
-            </div>
+
+                echo"<p>You could learn more knowledge of ethics in this part</p>";
+
+                $link_gostudy = url('chapter/1/section/1');
+
+                echo"<p><a href=$link_gostudy class=\"btn btn-primary\" role=\"button\">Go Study</a> </p>";
+
+                echo"</div>";
+            echo"</div>";
+            ?>
         </div>
     </div>
     <div class="col-xs-1 col-sm-2 col-md-2"></div>

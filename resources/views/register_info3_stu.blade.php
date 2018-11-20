@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-@include('Header')
+@include('Header1')
 <h2 class="text-center">   Educational & Financial Background   </h2>
 <div class = "row" style="margin:2%;">
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>

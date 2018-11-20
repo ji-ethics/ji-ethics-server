@@ -19,8 +19,18 @@ Route::get('homepage', function () {
     return view('Homepage');
 });
 
+Route::get('homepageguest', function () {
+    return view('HomepageGuest');
+});
 
-//route for the admin
+Route::get('Login', function () {
+    return view('Login');
+});
+
+Route::get('SurveyFinished', function () {
+    return view('SurveyFinished');
+});
+
 Route::get('admin', function () {
     return view('administer_main');
 });
@@ -33,18 +43,12 @@ Route::get('admin/material', function () {
     return view('administer_material_section');
 });
 
-Route::get('admin/material/add', function () {
-    return view('administer_material_add');
-});
-
-//route for chapter
 
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
-//route for post
-
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
+Route::get('surveys/{id}','SurveyController@survey');
 Route::post('/material_submit', 'ListChapterController@materialsubmit');
 
 
