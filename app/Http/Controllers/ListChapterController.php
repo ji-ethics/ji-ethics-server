@@ -26,6 +26,21 @@ class ListChapterController extends Controller
 
         return view('administer_material_submit',compact('sections'));
     }
+
+    public function materialsubmit()
+    {
+
+        $chapter_id=$_POST["chapter_id"];// only one element
+        $section_rank=$_POST["section"];//others are array
+        $section_title=$_POST["sectiontitle"];
+        $section_detail=$_POST["sectiondetail"];
+
+        //TODO add the materials to the data base
+
+
+
+        return view('administer_material_submit');
+    }
 }
 
 class Post extends Model

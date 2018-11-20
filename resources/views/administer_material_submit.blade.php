@@ -39,7 +39,7 @@
                         $id=$ch_value["chapter_id"];
                         echo "<div class=\"form-group\">";
                         echo"<label>Chapter id</label>";
-                        echo"<input name=\"title\" type=\"text\" class=\"form-control\" placeholder=\"$id\">";
+                        echo"<input name=\"chapter_id\" type=\"text\" class=\"form-control\" placeholder=\"$id\">";
                         echo"</div>";
                         $control=1;
                     }
