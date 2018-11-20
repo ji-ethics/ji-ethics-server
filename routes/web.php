@@ -19,6 +19,18 @@ Route::get('homepage', function () {
     return view('Homepage');
 });
 
+Route::get('homepageguest', function () {
+    return view('HomepageGuest');
+});
+
+Route::get('Login', function () {
+    return view('Login');
+});
+
+Route::get('SurveyFinished', function () {
+    return view('SurveyFinished');
+});
+
 Route::get('admin', function () {
     return view('administer_main');
 });
@@ -32,7 +44,7 @@ Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
-//route for the register
+Route::get('surveys/{id}','SurveyController@survey');
 
 Route::get('register', function () {
     return view('register');

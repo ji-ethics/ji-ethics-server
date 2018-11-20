@@ -29,6 +29,7 @@
         <br/>
         <?php
         $question = json_decode($survey_questions,true);
+
         foreach ($question as $content) {
                 if($content['id'] == $id)
                     {
@@ -41,8 +42,13 @@
                     $question_ch_5 = $content['choice5'];
                     echo "<form>";
                     //echo "<div padding class = \"text-center\">";
+                    echo"<font size=\"5\">";
+                    //echo "<div class=\"thumbnail fixed-top\">";
+                    echo "<br/>";
                     echo "<p>Instructions: $question_title</p>";
+                    echo"</font>";
                     echo "<div>";
+                    echo"<font size=\"4\">";
                     echo "<br/>";
                     echo "<p>[0]$question_ch_0</p>";
                     echo "<p>[1]$question_ch_1</p>";
@@ -50,30 +56,35 @@
                     echo "<p>[3]$question_ch_3</p>";
                     echo "<p>[4]$question_ch_4</p>";
                     echo "<p>[5]$question_ch_5</p>";
-                    echo "<br/>";
+                    //echo "</div>";
+                    echo"</font>";
                     //echo "</div>";
                     echo "</div>";
                     echo "</form>";
-
+                        echo "<br/>";
+                        echo "<br/>";
+                        echo "<br/>";
                 $question_details = json_decode($survey_details,true);
                 foreach ($question_details as $survey_details) {
 
                     echo "<div>";
+                    //echo "<li>";
                     $details = $survey_details['detail'];
-
+                    //echo"<div class=\"col-md-1\"></div>";
                     echo "<select class=\"form-control:focus\">";
                         for ($x=0; $x<=5; $x++) {
                             echo "<option>[$x]</option>";
                         }
                         echo "</select>";
                     echo "<label>  $details</label>";
+                    //echo "</li>";
                     echo "</div>";
                     echo "<br/>";
                     }
                 }
             }
         echo "<div padding class = \"text-center\">";
-        echo "<a href=\"#\"><button type=\"submit\" class=\"btn btn-default\">Submit</button></a>";
+        echo "<a ><button type=\"submit\" class=\"btn btn-default\">Submit</button></a>";
         $new_id = 0;
         foreach ($question as $content1) {
             if($content1['id'] == $id+1)
@@ -84,7 +95,7 @@
         }
         if ($new_id == 0)
             {
-                $link_next = url("/senarios");
+                $link_next = url("/SurveyFinished");
             }
         echo "<a href=$link_next><button class=\"btn btn-default\">Next</button></a>";
         echo "</div>";

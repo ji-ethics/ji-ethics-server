@@ -7,7 +7,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <?php
-                $Link_gohomepage = url('/homepage');
+                $Link_gohomepage = url('/homepageguest');
                 echo"<a class=\"navbar-brand\" href=$Link_gohomepage>LOGO</a>";
                 ?>
             </div>
@@ -16,8 +16,8 @@
             <div>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
-                $Link_login = url('/homepageguest');
-                echo"<li><a href=$Link_login><b>Log out</b></a></li>";
+                $Link_login = url('/Login');
+                echo"<li><a href=$Link_login><b>Log in</b></a></li>";
                 ?>
                 <?php
                     $Link_gohomepage = url('/homepage');

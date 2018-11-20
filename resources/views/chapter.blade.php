@@ -96,9 +96,15 @@
             $ques_id = $ques_value["question_id"];
             $ques_detail = $ques_value["question"];
 
-            echo "<label for=\"exampleInputEmail1\">Question $ques_id. $ques_detail</label>";
+            echo "<label for=\"exampleInputEmail1\">$ques_detail</label>";
             echo "<div class=\"form-group\">";
-            echo "<input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"In put your Answer\">";
+
+            echo"<textarea name=\"Answer content\"  id=\"content\" style=\"height:80px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
+
+            echo"</textarea>";
+
+
+
             echo "</div>";
             echo "<br/>";
             echo "</form>";
