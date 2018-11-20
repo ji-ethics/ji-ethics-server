@@ -24,7 +24,7 @@ class ListChapterController extends Controller
 
 
 
-        return view('administer_material_submit',$select,$sections);
+        return view('administer_material_submit',compact('sections'));
     }
 }
 
