@@ -18,29 +18,20 @@
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>
     <div class="col-xs-10 col-sm-10 col-md-8" style="margin:2%;">
         <h2 class="text-center">   Registration    </h2>
-        {{ Form::open(array('class'=>'form-signup')) }}
-        {{--<ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>--}}
-        <fieldset>
-            <p class="form-group">
-                {{ Form::text('username', null, array('class'=>'form-control', 'placeholder'=>'Username')) }}
-            </p>
-            <p class="form-group">
-                {{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email Address')) }}
-            </p>
-            <p class="form-group">
-                {{ Form::text('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
-            </p>
-            <p class="form-group">
-                {{ Form::text('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Password Again')) }}
-            </p>
-            {{ Form::submit('马上注册',array('class'=>'btn btn-large btn-success btn-block')) }}
-        </fieldset>
-        {{ Form::close() }}
-
+        <form>
+            <div class="form-group">
+                <label style="font-size:20px">Email address</label>
+                <input type="email" class="form-control" id="Email1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label  style="font-size:20px">Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Require 6-20 letters,numbers or special characters">
+            </div>
+            <div class="form-group">
+                <label  style="font-size:20px">Password Again</label>
+                <input type="password" class="form-control" id="Password Again">
+            </div>
+        </form>
 {{--
         <div>
             <h4> You can also register with</h4>
