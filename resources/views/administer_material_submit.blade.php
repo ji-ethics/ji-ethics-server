@@ -22,7 +22,7 @@
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-12 col-sm-8 col-md-8">
 
-            <form action="/material_submit" method="POST">
+            <form action="/material_edit" method="POST">
                 {{csrf_field()}}
 
                 <?php
@@ -68,17 +68,9 @@
 
 
                 }
-                echo"<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
+                echo"<button type=\"submit\" class=\"btn btn-default\">Edit</button>";
                 ?>
-                {{--<div class="form-group">--}}
-                    {{--<label>Chatper_id</label>--}}
-                    {{--<input name="title" type="text" class="form-control" placeholder="这里是标题">--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<label>内容</label>--}}
-                    {{--<textarea id="content" style="height:400px;max-height:500px;" name="content" class="form-control" placeholder="这里是内容"></textarea>--}}
-                {{--</div>--}}
-                {{--<button type="submit" class="btn btn-default">提交</button>--}}
+
             </form>
             <br>
         </div>

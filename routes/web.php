@@ -54,7 +54,9 @@ Route::post('/list_chapter', 'ListChapterController@listchapter');
 
 Route::get('surveys/{id}','SurveyController@survey');
 
-Route::post('/material_submit', 'ListChapterController@materialsubmit');
+Route::post('/material_add', 'ListChapterController@materialadd');
+
+Route::post('/material_edit', 'ListChapterController@materialedit');
 
 
 //route for the register
