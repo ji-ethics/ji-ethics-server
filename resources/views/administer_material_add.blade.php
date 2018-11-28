@@ -3,10 +3,10 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
 </head>
@@ -41,6 +41,7 @@
                 <div class="form-group">
                     <label>Section Detail</label>
                     <textarea name="sectiondetail"  id="content" style="height:400px;max-height:500px;" type="text" class="form-control" placeholder="section_detail">
+                        Add New material
                     </textarea>
                 </div>
 
@@ -56,7 +57,7 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
+
 </body>
 
 </html>
