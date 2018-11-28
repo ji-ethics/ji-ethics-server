@@ -23,7 +23,7 @@
         <div class="col-xs-12 col-sm-8 col-md-8">
 
             <input name="_tabken" value="{{csrf_token()}}" type="hidden">
-            <form action="/material_submit" method="POST">
+            <form action="/material_add" method="POST">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Chapter ID</label>
@@ -41,6 +41,7 @@
                 <div class="form-group">
                     <label>Section Detail</label>
                     <textarea name="sectiondetail"  id="content" style="height:400px;max-height:500px;" type="text" class="form-control" placeholder="section_detail">
+                        Add New material
                     </textarea>
                 </div>
 
@@ -56,7 +57,7 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
+
 </body>
 
 </html>

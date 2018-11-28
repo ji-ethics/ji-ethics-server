@@ -26,8 +26,12 @@
             <form action="/list_chapter" method="POST">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label>Chapter ID</label>
+                    <label>Chapter NO.</label>
                     <input name="title" type="text" class="form-control" placeholder="Chapter ID">
+                </div>
+                <div class="form-group">
+                    <label>Section NO.</label>
+                    <input name="sectionid" type="text" class="form-control" placeholder="Chapter ID">
                 </div>
 
                 <button type="submit" class="btn btn-default">Go To</button>
@@ -44,7 +48,7 @@
 
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
     </div>
-</div>
+
 </body>
 
 </html>
