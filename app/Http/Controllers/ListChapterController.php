@@ -45,21 +45,9 @@ class ListChapterController extends Controller
             ->get();
         //!empty($sections['id'])
         if (count($sections) != 0) {
-            $section_id = $sections->first();
-            DB::transaction(function () use ($section_id, $chapter_id, $section_rank, $section_title, $section_detail) {
-//                DB::table('chapters')
-//                    ->where('id',$chapter_id)
-//                    ->update([
-//                    //'title' => ...;
-//                ]);
-                DB::table('sections')
-                    ->where('id', $section_id)
-                    ->update([
-                        'rank' => $section_rank,
-                        'title' => $section_title,
-                        'detail' => $section_detail
-                    ]);
-            });
+            $reture_url=url("/admin/material/add");
+            $errordata="The section already exist";
+            return view('Error_Page',$reture_url,$errordata);
         } else {
             DB::transaction(function () use ($chapter_id, $section_rank, $section_title, $section_detail) {
                 $section_id = DB::table('sections')
@@ -77,7 +65,7 @@ class ListChapterController extends Controller
         }
 
 
-        return view('administer_material_submit');
+        return view('administer_material_section');
     }
 
 //edit section
@@ -130,7 +118,7 @@ class ListChapterController extends Controller
         }
 
 
-        return view('administer_material_submit');
+        return view('administer_material_section');
 
     }
 }
