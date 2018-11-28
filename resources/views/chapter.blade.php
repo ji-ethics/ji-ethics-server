@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
-<html>
+<html lang = "en">
 <head>
+
     <meta charset="UTF-8">
     <title>Study Page</title>
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\mycss.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -31,6 +32,7 @@
                         $sections_title = json_decode($sections_title, true);
                         $chapters = json_decode($chapters, true);
                         //var_dump($sections[0]["chapter_id"]);
+
                     echo "<li>";
                         foreach ($chapters as $ch_value)
                             {
@@ -40,7 +42,7 @@
 
                                 echo "<li><a href = $link1 class=\"glyphicon glyphicon-globe\">Chapter $chapter_id. <br>$title</a></li>";
                                 echo "<li>";
-                                echo "<ul id=\"systemSetting\" class= style=\"height: 0px;\">";
+                                echo "<ul>";
                                 foreach ($sections_title as $se_value)
                                 {
                                     if ($chapter_id == $sections1[0]["chapter_id"]){
@@ -57,12 +59,12 @@
                                     }
                                 }
                                 echo "</ul>";
-
                                 echo "</li>";
                             }
-                    echo "<br/>";
-                    echo "</li>";
-                    ?>
+
+                    echo "</li>";//No li element in scope but a li end tag seen.
+
+                        ?>
                         <!--foreach ($data as $key => $value)
                         {
                             $section_id = $value["rank"];
@@ -96,10 +98,10 @@
             $ques_id = $ques_value["question_id"];
             $ques_detail = $ques_value["question"];
 
-            echo "<label for=\"exampleInputEmail1\">$ques_detail</label>";
+            echo "<label>$ques_detail</label>";
             echo "<div class=\"form-group\">";
 
-            echo"<textarea name=\"Answer content\"  id=\"content\" style=\"height:80px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
+            echo"<textarea name=\"Answer content\"  id=\"content\" style=\"height:80px;max-height:500px;\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
 
             echo"</textarea>";
 
@@ -107,11 +109,10 @@
 
             echo "</div>";
             echo "<br/>";
-            echo "</form>";
 
         }
         ?>
-            <div padding class = "text-center">
+            <div class = "text-center">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li>

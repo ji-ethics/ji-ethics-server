@@ -1,12 +1,13 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <style>
@@ -35,13 +36,14 @@
 
 <?php
 
-echo"<font size=\"5\">";
+echo"<div style= \"font-size:15px\">";
 echo"<p>You have already finished the survey and your response will be used for further research. Thank you for your participation!</p>";
 
 echo"<br/>";
+echo"</div>";
 $Link_homepage = url('/homepage');
 echo"<div class = 'text-center'>";
-echo"<a href = $Link_homepage><button type=\"button\"  class=\"btn btn-default\">Go to homepage</button></a>";
+echo"<a href = $Link_homepage type=\"button\"  class=\"btn btn-default\">Go to homepage</a>";
 echo"</div>";
 echo"</font>";
 ?>

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
-<html>
+<html lang = "en">
 <head>
     <meta charset="UTF-8">
     <title>Surveys for users</title>
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\mycss.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -42,29 +42,29 @@
                     $question_ch_5 = $content['choice5'];
                     echo "<form>";
                     //echo "<div padding class = \"text-center\">";
-                    echo"<font size=\"5\">";
+                    echo"<div style= \"font-size:20px\">";
                     //echo "<div class=\"thumbnail fixed-top\">";
                     echo "<br/>";
                     echo "<p>Instructions: $question_title</p>";
-                    echo"</font>";
+                    echo"</div>";
                     echo "<div>";
-                    echo"<font size=\"4\">";
                     echo "<br/>";
+                    echo"<div style= \"font-size:15px\">";
                     echo "<p>[0]$question_ch_0</p>";
                     echo "<p>[1]$question_ch_1</p>";
                     echo "<p>[2]$question_ch_2</p>";
                     echo "<p>[3]$question_ch_3</p>";
                     echo "<p>[4]$question_ch_4</p>";
                     echo "<p>[5]$question_ch_5</p>";
-                    //echo "</div>";
-                    echo"</font>";
-                    //echo "</div>";
                     echo "</div>";
+                    echo "</div>";
+                    //echo "</div>";
                     echo "</form>";
                         echo "<br/>";
                         echo "<br/>";
                         echo "<br/>";
                 $question_details = json_decode($survey_details,true);
+                //echo"<div style= \"font-size:12px\">";
                 foreach ($question_details as $survey_details) {
 
                     echo "<div>";
@@ -82,9 +82,11 @@
                     echo "<br/>";
                     }
                 }
+                //echo "</div>";
             }
-        echo "<div padding class = \"text-center\">";
-        echo "<a ><button type=\"submit\" class=\"btn btn-default\">Submit</button></a>";
+
+        echo "<div class = \"text-center\">";
+        echo "<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
         $new_id = 0;
         foreach ($question as $content1) {
             if($content1['id'] == $id+1)
@@ -95,9 +97,11 @@
         }
         if ($new_id == 0)
             {
-                $link_next = url("/SurveyFinished");
+                $link_next = url("SurveyFinished");
             }
-        echo "<a href=$link_next><button class=\"btn btn-default\">Next</button></a>";
+
+        echo "<a href=$link_next class=\"btn btn-default\">Next</a>";
+        echo "$new_id";
         echo "</div>";
         ?>
 

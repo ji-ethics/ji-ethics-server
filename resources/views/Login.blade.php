@@ -3,10 +3,10 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <style>
@@ -39,9 +39,9 @@ echo"<div class=\"input-group\">";
 
         echo"<span class=\"input-group-addon\" id=\"basic-addon1\">";
 
-            $user_img = url(asset('image\User.png'));
+            $user_img = url(asset('image/User.png'));
 
-            echo"<img src=$user_img height=\"15\" width=\"15\"/>";
+            echo"<img src=$user_img height=\"15\" width=\"15\" alt=\"User\" >";
 
         echo"</span>";
 
@@ -55,9 +55,9 @@ echo"<div class=\"input-group\">";
 
         echo"<span class=\"input-group-addon\" id=\"basic-addon1\">";
 
-        $password_img = url(asset('image\Password.png'));
+        $password_img = url(asset('image/Password.png'));
 
-        echo"<img src=$password_img height=\"15\" width=\"15\" />";
+        echo"<img src=$password_img height=\"15\" width=\"15\" alt=\"Password\">";
 
         echo"</span>";
 
@@ -71,11 +71,11 @@ echo"<div>";
 
 $Link_homepage = url('/homepage');
 
-echo"<a href = $Link_homepage><button type=\"button\" style=\"width:110px;\" class=\"btn btn-default\">Log In</button></a>";
+echo"<button href = $Link_homepage type=\"button\" style=\"width:110px;\" class=\"btn btn-default\">Log In</button>";
 
 $Link_register = url('/register');
 
-echo"<a href = $Link_register><button type=\"button\" class=\"btn btn-link\">Create a new account</button></a>";
+echo"<button href = $Link_register type=\"button\" class=\"btn btn-link\">Create a new account</button>";
 
 echo"</div>"
 

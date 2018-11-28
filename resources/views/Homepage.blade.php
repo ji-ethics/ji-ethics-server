@@ -3,10 +3,10 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
 </head>
@@ -18,8 +18,9 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Welcome</h1>
-        <p>This is a study webpage for you to learn and test engineering ethics. You can first do the following survey to have a primary impression.</p>
-
+        <?php
+        echo"<p>This is a study webpage for you to learn and test engineering ethics. You can first do the following survey to have a primary impression.</p>";
+        ?>
         <?php
         $link_survey = url('/surveys/1');
         echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Start The Survey</a></p>";
