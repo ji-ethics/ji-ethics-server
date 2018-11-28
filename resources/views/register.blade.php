@@ -21,28 +21,26 @@
         <form>
             <div class="form-group">
                 <label style="font-size:20px">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                <input type="email" class="form-control" id="Email1" placeholder="Email">
             </div>
             <div class="form-group">
                 <label  style="font-size:20px">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Require 6-20 letters,numbers or special characters">
+                <input type="password" class="form-control" id="Password" placeholder="Require 6-20 letters,numbers or special characters">
             </div>
             <div class="form-group">
                 <label  style="font-size:20px">Password Again</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="Password Again">
             </div>
-            <div>
-                <h4> You can also register with</h4>
-                <img src="image/qq.png" height="30" width="30" class="img-circle"/>
-                <img src="image/weixin.png" height="30" width="30" class="img-circle"/>
-                <img src="image/weibo.png" height="30" width="30" class="img-circle"/>
-                <img src="image/FaceBook.png" height="30" width="30" class="img-rounded"/>
-            </div>
-            <br/>
-            <br/>
-
         </form>
-
+{{--
+        <div>
+            <h4> You can also register with</h4>
+            <img src="image/qq.png" height="30" width="30" class="img-circle"/>
+            <img src="image/weixin.png" height="30" width="30" class="img-circle"/>
+            <img src="image/weibo.png" height="30" width="30" class="img-circle"/>
+            <img src="image/FaceBook.png" height="30" width="30" class="img-rounded"/>
+        </div>
+--}}
     </div>
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>
 
@@ -50,6 +48,8 @@
 <div align="center">
     <a href=register/agreement><button type="submit" class="btn btn-default" > Next </button></a>
 </div>
+
+
 <br/>
 <br/>
 <br/>
