@@ -13,7 +13,7 @@
 </head>
 <body>
 
-@include('Header')
+@include('Header1')
 
 <div class = "row" style="margin:2%;">
     <div class="col-xs-1 col-sm-1 col-md-1"> </div>

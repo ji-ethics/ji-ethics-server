@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-@include('Header')
+@include('Header1')
 <h2 class="text-center">   Language Background </h2>
 <div id = "Alllang">
 <div class = "language">

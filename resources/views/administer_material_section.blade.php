@@ -31,7 +31,10 @@
                 </div>
 
                 <button type="submit" class="btn btn-default">Go To</button>
-                <a class="btn btn-default" href="#" role="button">Add new chapter</a>
+                <?php
+                    $templink= url("/admin/material/add");
+                echo"<a class=\"btn btn-default\" href=\"$templink\" role=\"button\">Add new section</a>";
+                ?>
             </form>
             <br>
         </div>

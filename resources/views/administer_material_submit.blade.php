@@ -29,39 +29,46 @@
                 $sections1 = json_decode($sections, true);
 //                $sections_title = json_decode($sections_title, true);
 //                $chapters1 = json_decode($chapters, true);
-                $selectid = $sections1;
-                //var_dump($sections[0]["chapter_id"]);
-                echo "<div class=\"form-group\">";
-                    echo"<label>Chapter id</label>";
-                    echo"<input name=\"title\" type=\"text\" class=\"form-control\" placeholder=\"$selectid\">";
-                echo"</div>";
 
+                //var_dump($sections[0]["chapter_id"]);
+
+                $control=0;
                 foreach ($sections1 as $ch_value)
                 {
-                    $title = $ch_value["title"];
-                    $detail = $ch_value["detail"];
-                    $chapter_id=$ch_value["detail"];
+                    if($control==0){
+                        $id=$ch_value["chapter_id"];
+                        echo "<div class=\"form-group\">";
+                        echo"<label>Chapter id</label>";
+                        echo"<input name=\"chapter_id\" type=\"text\" class=\"form-control\" placeholder=\"$id\">";
+                        echo"</div>";
+                        $control=1;
+                    }
+                    $section_detail = $ch_value["detail"];
+                    $section_rank = $ch_value["rank"];
+                    $section_title = $ch_value["title"];
 
-                        if ($chapter_id == $selectid){
-                            $section_rank = $ch_value["rank"];
-                            $section_title = $ch_value["title"];
-                            echo "<div class=\"form-group\">";
-                                echo"<label>section $section_rank</label>";
-                                echo"<input name=\"section\" type=\"text\" class=\"form-control\" placeholder=\"section $section_rank\">";
-                            echo"</div>";
-                            echo "<div class=\"form-group\">";
-                                echo"<label>section title</label>";
-                                echo"<input name=\"sectiontitle\" type=\"text\" class=\"form-control\" placeholder=\"$section_title\">";
-                            echo"</div>";
-                            echo "<div class=\"form-group\">";
-                                echo"<label>section detail</label>";
-                                echo"<input name=\"sectiondetail\" textarea id=\"content\" style=\"height:400px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"$section_detail\">";
-                            echo"</div>";
-                        }
 
-                   echo"<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
+                    echo "<div class=\"form-group\" id=\"section$section_rank \">";
+                        echo"<label>section id</label>";
+                        echo"<input name=\"section\" type=\"text\" class=\"form-control\" placeholder=\"$section_rank\">";
+                    echo"</div>";
+                    echo "<div class=\"form-group\">";
+                        echo"<label>section title</label>";
+                        echo"<input name=\"sectiontitle\" type=\"text\" class=\"form-control\" placeholder=\"$section_title\">";
+                    echo"</div>";
+                    echo "<div class=\"form-group\">";
+                        echo"<label>section detail</label>";
+                        echo"<textarea name=\"sectiondetail\"  id=\"content\" style=\"height:400px;max-height:500px;\" type=\"text\" class=\"form-control\" placeholder=\"section_detail\">";
+                        echo htmlspecialchars($section_detail);
+                        echo"</textarea>";
+                        echo"</div>";
+                    echo"<br/>";
+                    echo"<br/>";
+                    echo"<br/>";
+
+
                 }
-
+                echo"<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
                 ?>
                 {{--<div class="form-group">--}}
                     {{--<label>Chatper_id</label>--}}

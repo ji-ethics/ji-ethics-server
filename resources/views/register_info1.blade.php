@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-@include('Header')
+@include('Header1')
 <div class = "row">
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>
     <div class="col-xs-8 col-sm-8 col-md-8" style="margin:2%;">

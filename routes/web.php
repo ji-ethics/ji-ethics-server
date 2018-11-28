@@ -19,8 +19,24 @@ Route::get('homepage', function () {
     return view('Homepage');
 });
 
+Route::get('homepageguest', function () {
+    return view('HomepageGuest');
+});
+
+Route::get('Login', function () {
+    return view('Login');
+});
+
+Route::get('SurveyFinished', function () {
+    return view('SurveyFinished');
+});
+
 Route::get('admin', function () {
     return view('administer_main');
+});
+
+Route::get('admin/data', function () {
+    return view('administer_data_show');
 });
 
 Route::get('admin/material', function () {
@@ -48,6 +64,10 @@ Route::get('register/info4', function () {
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
+
+Route::get('surveys/{id}','SurveyController@survey');
+Route::post('/material_submit', 'ListChapterController@materialsubmit');
+
 
 //route for the register
 
