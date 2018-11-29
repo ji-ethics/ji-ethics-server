@@ -3,10 +3,10 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
 </head>
@@ -26,8 +26,12 @@
             <form action="/list_chapter" method="POST">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label>Chapter ID</label>
+                    <label>Chapter NO.</label>
                     <input name="title" type="text" class="form-control" placeholder="Chapter ID">
+                </div>
+                <div class="form-group">
+                    <label>Section NO.</label>
+                    <input name="sectionid" type="text" class="form-control" placeholder="Chapter ID">
                 </div>
 
                 <button type="submit" class="btn btn-default">Go To</button>
@@ -44,7 +48,7 @@
 
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
     </div>
-</div>
+
 </body>
 
 </html>

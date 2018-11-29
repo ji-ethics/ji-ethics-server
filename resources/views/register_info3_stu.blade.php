@@ -19,7 +19,7 @@
         <font size="4">
             <div>
                 <br/>
-                <label>Education level</label>
+                <label>Highest education level achieved</label>
                 <select class="form-control" id="education_level" style="width:300px;" onchange="showup(this.id)">
                     <option value="1">Less than a high school diploma</option>
                     <option value="2">High school degree or equivalent </option>
@@ -32,7 +32,7 @@
                 </select>
                 <div style="display:none;">
                     <br/>
-                    <label>Major (Already pursued)</label>
+                    <label>Majoring in</label>
                     <?php
                     echo "<select class=\"form-control\" style=\"width:300px;\">";
                     $majors = json_decode($major, true);

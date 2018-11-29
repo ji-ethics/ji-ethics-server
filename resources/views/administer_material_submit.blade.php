@@ -3,10 +3,10 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homepage</title>
 </head>
@@ -22,7 +22,7 @@
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-12 col-sm-8 col-md-8">
 
-            <form action="/material_submit" method="POST">
+            <form action="/material_edit" method="POST">
                 {{csrf_field()}}
 
                 <?php
@@ -39,7 +39,7 @@
                         $id=$ch_value["chapter_id"];
                         echo "<div class=\"form-group\">";
                         echo"<label>Chapter id</label>";
-                        echo"<input name=\"chapter_id\" type=\"text\" class=\"form-control\" placeholder=\"$id\">";
+                        echo"<textarea name=\"chapter_id\" type=\"text\" class=\"form-control\">$id</textarea>";
                         echo"</div>";
                         $control=1;
                     }
@@ -50,11 +50,11 @@
 
                     echo "<div class=\"form-group\" id=\"section$section_rank \">";
                         echo"<label>section id</label>";
-                        echo"<input name=\"section\" type=\"text\" class=\"form-control\" placeholder=\"$section_rank\">";
+                        echo"<textarea name=\"section\" type=\"text\" class=\"form-control\">$section_rank</textarea>";
                     echo"</div>";
                     echo "<div class=\"form-group\">";
                         echo"<label>section title</label>";
-                        echo"<input name=\"sectiontitle\" type=\"text\" class=\"form-control\" placeholder=\"$section_title\">";
+                        echo"<textarea name=\"sectiontitle\" type=\"text\" class=\"form-control\" >$section_title</textarea>";
                     echo"</div>";
                     echo "<div class=\"form-group\">";
                         echo"<label>section detail</label>";
@@ -68,17 +68,9 @@
 
 
                 }
-                echo"<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
+                echo"<button type=\"submit\" class=\"btn btn-default\">Edit</button>";
                 ?>
-                {{--<div class="form-group">--}}
-                    {{--<label>Chatper_id</label>--}}
-                    {{--<input name="title" type="text" class="form-control" placeholder="这里是标题">--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<label>内容</label>--}}
-                    {{--<textarea id="content" style="height:400px;max-height:500px;" name="content" class="form-control" placeholder="这里是内容"></textarea>--}}
-                {{--</div>--}}
-                {{--<button type="submit" class="btn btn-default">提交</button>--}}
+
             </form>
             <br>
         </div>
@@ -89,8 +81,7 @@
 
 
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-    </div>
-</div>
+
 </body>
 
 </html>
