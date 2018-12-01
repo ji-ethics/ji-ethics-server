@@ -15,10 +15,32 @@
 
             <div>
                 <ul class="nav navbar-nav navbar-right">
-                <?php
-                $Link_login = url('/homepageguest');
-                echo"<li><a href=$Link_login><b>Log out</b></a></li>";
-                ?>
+                    @guest
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                {{ Auth::user()->user_name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+
+
                 <?php
                     $Link_gohomepage = url('/homepage');
                     echo"<li><a href=$Link_gohomepage><b>About</b></a></li>";

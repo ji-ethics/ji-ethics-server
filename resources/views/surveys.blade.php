@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Surveys for users</title>
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\mycss.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 

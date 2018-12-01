@@ -12,43 +12,49 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Homepage');
 });
 
 Route::get('homepage', function () {
     return view('Homepage');
 });
 
-Route::get('homepageguest', function () {
-    return view('HomepageGuest');
-});
-
-Route::get('Login', function () {
-    return view('Login');
-});
-
 Route::get('SurveyFinished', function () {
     return view('SurveyFinished');
 });
 
-Route::get('admin', function () {
-    return view('administer_main');
+//Route::get('admin', function () {
+//    return view('administer_main');
+//});
+//
+//Route::get('admin/data', function () {
+//    return view('administer_data_show');
+//});
+//
+//Route::get('admin/material', function () {
+//    return view('administer_material_section');
+//});
+//
+//Route::get('admin/material/add', function () {
+//    return view('administer_material_add');
+//});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'Admin\IndexController@admin_index');
+    Route::get('/data', function () {
+        return view('administer_data_show');
+    });
+
+    Route::get('/material', function () {
+        return view('administer_material_section');
+    });
+
+    Route::get('/material/add', function () {
+        return view('administer_material_add');
+    });
 });
 
-Route::get('admin/data', function () {
-    return view('administer_data_show');
-});
-
-Route::get('admin/material', function () {
-    return view('administer_material_section');
-});
-
-Route::get('admin/material/add', function () {
-    return view('administer_material_add');
-});
-
-
-Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
+Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter')->middleware('auth');
 
 Route::post('/list_chapter', 'ListChapterController@listchapter');
 
@@ -78,3 +84,9 @@ Route::get('register/info3','registerinfo3@education');
 Route::get('register/info4', function () {
     return view('register_info4');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::post('mylogin', 'Auth\LoginController@mylogin')->name('mylogin');

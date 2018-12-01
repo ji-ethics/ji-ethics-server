@@ -16,7 +16,7 @@
             <div>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
-                $Link_login = url('/Login');
+                $Link_login = url('/login');
                 echo"<li><a href=$Link_login><b>Log in</b></a></li>";
                 ?>
                 <?php
