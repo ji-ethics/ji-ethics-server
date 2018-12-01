@@ -28,6 +28,10 @@ class ChapterController extends Controller
             ->where('chapter_section.chapter_id','=',$id)
             ->orderBy('sections.rank')->get();
 
+        $case_study = DB::table('case_study_material')
+            ->select('case_study_material.id','case_study_material.title','case_study_material.details','case_study_material.reference')
+            ->orderBy('case_study_material.id')->get();
+
         $chapter_section = DB::table('chapter_section')
             ->join('sections','chapter_section.section_id','=','sections.id')
             ->select('sections.rank as section_rank','chapter_section.chapter_id','chapter_section.section_id')
@@ -42,6 +46,6 @@ class ChapterController extends Controller
             ->orderBy('section_question.question_id')->get();
 
 
-        return view('chapter', compact('sections','chapters','sections_title','chapter_section','section_question'));
+        return view('chapter', compact('sections','chapters','sections_title','case_study','chapter_section','section_question'));
     }
 }

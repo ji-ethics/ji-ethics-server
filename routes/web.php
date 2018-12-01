@@ -47,6 +47,7 @@ Route::get('admin/material/add', function () {
     return view('administer_material_add');
 });
 
+Route::get('casestudy/{id}/step/{step_id}', 'CaseStudyController@chapter');
 
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter');
 
@@ -58,6 +59,7 @@ Route::post('/material_add', 'ListChapterController@materialadd');
 
 Route::post('/material_edit', 'ListChapterController@materialedit');
 
+Route::post('/casestudyanswer_edit', 'CaseStudyController@useransweredit');
 
 //route for the register
 

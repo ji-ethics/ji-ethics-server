@@ -31,6 +31,7 @@
                         $sections1 = json_decode($sections, true);
                         $sections_title = json_decode($sections_title, true);
                         $chapters = json_decode($chapters, true);
+                        $case_study = json_decode($case_study,true);
                         //var_dump($sections[0]["chapter_id"]);
 
                     echo "<li>";
@@ -61,6 +62,14 @@
                                 echo "</ul>";
                                 echo "</li>";
                             }
+                    foreach ($case_study as $ca_value)
+                    {
+                        $case_id = $ca_value["id"];
+                        $ca_title = $ca_value["title"];
+                        $link2 = url("casestudy/$case_id/step/1");
+
+                        echo "<li><a href = $link2 class=\"glyphicon glyphicon-globe\">Case Study $case_id. <br>$ca_title</a></li>";
+                    }
 
                     echo "</li>";//No li element in scope but a li end tag seen.
 
