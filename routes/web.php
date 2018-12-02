@@ -74,23 +74,24 @@ Route::post('/material_edit', 'ListChapterController@materialedit');
 
 //route for the register
 
-Route::get('register', function () {
-    return view('register');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('agreement', function () {
+        return view('register_agreement');
+    });
+
+    Route::get('info1','RegisterInfoController@nationality');
+
+    Route::get('info2','RegisterInfoController@language');
+
+    Route::get('info3','RegisterInfoController@education');
+
+    Route::get('info4', function () {
+        return view('register_info4');
+    });
 });
 
-Route::get('register/agreement', function () {
-    return view('register_agreement');
-});
-
-Route::get('register/info1','registerinfo1@nationality');
-
-Route::get('register/info2','registerinfo2@language');
-
-Route::get('register/info3','registerinfo3@education');
-
-Route::get('register/info4', function () {
-    return view('register_info4');
-});
 
 Auth::routes();
 
