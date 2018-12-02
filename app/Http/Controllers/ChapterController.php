@@ -22,6 +22,12 @@ class ChapterController extends Controller
             ->select('chapters.id','chapters.title')
             ->orderBy('chapters.id')->get();
 
+        $user_answer = DB::table('user_section_answer')
+            ->select('user_section_answer.answer','user_section_answer.question_id','user_section_answer.user_id')
+            ->where('user_section_answer.section_rank','=',$section_rank)
+            ->where('user_section_answer.chapter_id','=',$id)
+            ->orderBy('user_section_answer.question_id')->get();
+
         $sections_title = DB::table('sections')
             ->join('chapter_section','sections.id','=','chapter_section.section_id')
             ->select('sections.rank','sections.title','sections.id')
@@ -46,6 +52,53 @@ class ChapterController extends Controller
             ->orderBy('section_question.question_id')->get();
 
 
-        return view('chapter', compact('sections','chapters','sections_title','case_study','chapter_section','section_question'));
+        return view('chapter', compact('user_answer','sections','chapters','sections_title','case_study','chapter_section','section_question','id','section_rank'));
+    }
+    public function answeredit()
+    {
+        foreach($_POST["question_id"] as $pointer)
+        {
+            $user_id = $_POST["user_id"][$pointer-1];
+            $chapter_id = $_POST["chapter_id"][$pointer-1];
+            $sec_rank = $_POST["section_rank"][$pointer-1];
+            $question_id = $_POST["question_id"][$pointer-1];
+            $question_answer = $_POST["answer"][$pointer-1];
+
+            $answer = DB::table('user_section_answer')
+                ->select('user_section_answer.user_id')
+                ->where('user_section_answer.user_id','=',$user_id)
+                ->where('user_section_answer.chapter_id','=',$chapter_id)
+                ->where('user_section_answer.section_rank','=',$sec_rank)
+                ->where('user_section_answer.question_id','=',$question_id)
+                ->get();
+
+            if(count($answer) == 0) {
+                DB::transaction(function () use ($user_id, $chapter_id, $sec_rank, $question_id, $question_answer) {
+                    DB::table('user_section_answer')
+                        ->insert([
+                            'user_section_answer.user_id' => $user_id,
+                            'user_section_answer.chapter_id' => $chapter_id,
+                            'user_section_answer.section_rank' => $sec_rank,
+                            'user_section_answer.question_id' => $question_id,
+                            'user_section_answer.answer' => $question_answer
+                        ]);
+                });
+            }
+            elseif(count($answer) != 0){
+                DB::transaction(function () use ($user_id, $chapter_id, $sec_rank, $question_id, $question_answer) {
+                    DB::table('user_section_answer')
+                        ->where('user_section_answer.user_id', '=', $user_id)
+                        ->where('user_section_answer.chapter_id', '=', $chapter_id)
+                        ->where('user_section_answer.section_rank', '=', $sec_rank)
+                        ->where('user_section_answer.question_id', '=', $question_id)
+                        ->update([
+                            'user_section_answer.answer' => $question_answer
+                        ]);
+                });
+            }
+        }
+
+
+
     }
 }

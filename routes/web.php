@@ -55,13 +55,30 @@ Route::post('/list_chapter', 'ListChapterController@listchapter');
 
 Route::get('surveys/{id}','SurveyController@survey');
 
+Route::get('showstudymaterial','ShowStudyMaterial@show');
+
+Route::get('check/chapter/{id}','ShowSectionContent@show');
+
+Route::get('modify/chapter/{id}/section/{section_id}','ModifyMaterialController@showsection');
+
+Route::get('addnewsection/chapter/{id}','ModifyMaterialController@showaddsection');
+
 Route::post('/material_add', 'ListChapterController@materialadd');
 
 Route::post('/material_edit', 'ListChapterController@materialedit');
 
 Route::post('/casestudyanswer_edit', 'CaseStudyController@useransweredit');
 
-//route for the register
+Route::post('/sectionanswer_edit', 'ChapterController@answeredit');
+
+Route::post('/sectiondetail_edit', 'ModifyMaterialController@sectiondetailedit');
+
+Route::post('/sectiondetail_add', 'ModifyMaterialController@sectiondetailadd');
+
+Route::post('delete/chapter/{id}/section/{section_counter}',function()
+{
+    return 'Hello World';
+});//route for the register
 
 Route::get('register', function () {
     return view('register');

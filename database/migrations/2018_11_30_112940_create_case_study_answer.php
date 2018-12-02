@@ -19,6 +19,8 @@ class CreateCaseStudyAnswer extends Migration
             $table->integer('step_id')->unsigned();
             $table->integer('question_id')->unsigned();
             $table->text('question_answer')->unsigned();
+            $table->integer('score')->nullable();
+            $table->integer('full_score')->nullable();
             $table->timestamps();
             $table->primary(['user_id', 'case_id', 'step_id', 'question_id']);
         });

@@ -20,8 +20,8 @@ class CaseStudyController extends Controller
             ->orderBy('case_study_material.id')->get();
 
         $case_question = DB::table('case_study_step')
-            ->select('case_study_step.question_id','case_study_step.question_detail')
-            ->where('case_study_step.step_id','=',$step_id)
+            ->select('case_study_step.question_id','case_study_step.question_detail','case_study_step.step_id')
+            ->orderBy('case_study_step.step_id')
             ->orderBy('case_study_step.question_id')->get();
 
         $principle = DB::table('ethical_principles')
@@ -31,9 +31,9 @@ class CaseStudyController extends Controller
             ->orderBy('detail_principles.detail_id')->get();
 
         $answer = DB::table('case_study_answer')
-            ->select('case_study_answer.question_answer','case_study_answer.user_id','case_study_answer.question_id')
+            ->select('case_study_answer.question_answer','case_study_answer.step_id','case_study_answer.user_id','case_study_answer.question_id')
             ->where('case_study_answer.case_id','=',$id)
-            ->where('case_study_answer.step_id','=',$step_id)
+            ->orderBy('case_study_answer.step_id')
             ->orderBy('case_study_answer.question_id')->get();
 
         return view('CaseStudy', compact('case_study','chapters','case_question','principle','id','step_id','answer'));
