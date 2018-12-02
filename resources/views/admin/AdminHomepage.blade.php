@@ -46,7 +46,7 @@
                         <h3>Study material</h3>
                         <p>Adjusting the study material </p>
                         <?php
-                        $tmp1 = url("/admin/material");
+                        $tmp1 = url("showstudymaterial");
                         echo "<p><a href = $tmp1  class=\"btn btn-primary\" role=\"button\">Material Management</a></p>"
 
                         ?>
