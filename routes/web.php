@@ -71,12 +71,54 @@ Route::post('/material_add', 'ListChapterController@materialadd');
 
 Route::post('/material_edit', 'ListChapterController@materialedit');
 
+Route::get('casestudy/{id}/step/{step_id}', 'CaseStudyController@chapter');
+//route for the new admin page
+Route::get('showstudymaterial','ShowStudyMaterialController@show');
 
+Route::get('check/chapter/{id}','ShowSectionContentController@show');
+
+Route::get('modify/chapter/{id}/section/{section_id}','ModifyMaterialController@showsection');
+
+Route::get('modify/chapter/{id}','ModifyMaterialController@showchapter');
+
+Route::get('addnewsection/chapter/{id}','ModifyMaterialController@addsection');
+
+Route::get('addnewsection_que/chapter/{id}','ModifyMaterialController@addsectionquestion');
+
+Route::post('/casestudyanswer_edit', 'CaseStudyController@useransweredit');
+
+Route::post('/sectionanswer_edit', 'ChapterController@answeredit');
+
+Route::post('/chaptertitle_edit', 'ModifyMaterialController@chaptertitleedit');
+
+Route::post('/sectiondetail_edit', 'ModifyMaterialController@sectiondetailedit');
+
+Route::post('/sectiondetail_add', 'ModifyMaterialController@sectiondetailadd');
+
+Route::post('/sectionquestion_add', 'ModifyMaterialController@sectionquestionadd');
+
+Route::post('/chapter_add', 'ModifyMaterialController@chapteradd');
+
+Route::get('delete/chapter/{id}','ShowStudyMaterialController@destroychapter');
+
+Route::get('/delete/section/{chapter_id}/{section_id}/question/{question_id}','ShowStudyMaterialController@destroysecquestion');
+
+Route::get('delete/case/{id}','ShowStudyMaterialController@destroycase');
+
+Route::get('/modify/case/{id}','ModifyMaterialController@showcase');
+
+Route::get('/addnewcase/{id}','ModifyMaterialController@addnewcase');//
+
+Route::post('/casedetail_edit', 'ModifyMaterialController@casedetailedit');
+
+Route::post('/casedetail_add', 'ModifyMaterialController@casedetailadd');//
+
+Route::get('delete/chapter/{id}/section/{section_counter}','ShowSectionContentController@destroy');
 //route for the register
 
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'register'], function () {
     Route::get('agreement', function () {
         return view('register_agreement');
     });
