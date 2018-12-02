@@ -23,7 +23,7 @@
             <p>This is a study webpage for you to learn and test engineering ethics. As a guest, you cannot get enough information. Please Log in first.</p>
 
             <?php
-            $link_survey = url('/Login');
+            $link_survey = url('/login');
             echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Log in</a></p>";
             ?>
 

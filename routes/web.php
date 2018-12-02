@@ -41,17 +41,24 @@ Route::get('SurveyFinished', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'Admin\IndexController@admin_index');
-    Route::get('/data', function () {
-        return view('administer_data_show');
+    Route::get('login', 'Admin\LoginController@showLoginForm');
+    Route::post('login', 'Admin\LoginController@login');
+    Route::post('logout', 'Admin\LoginController@logout');
+
+    Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('/data', function () {
+            return view('administer_data_show');
+        });
+
+        Route::get('/material', function () {
+            return view('administer_material_section');
+        });
+
+        Route::get('/material/add', function () {
+            return view('administer_material_add');
+        });
     });
 
-    Route::get('/material', function () {
-        return view('administer_material_section');
-    });
-
-    Route::get('/material/add', function () {
-        return view('administer_material_add');
-    });
 });
 
 Route::get('chapter/{id}/section/{section_rank}', 'ChapterController@chapter')->middleware('auth');

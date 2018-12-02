@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
     public function admin_index()
     {
-        return view('administer_main');
+        return view('admin.AdminHomepage');
     }
 }
