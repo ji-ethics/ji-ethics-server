@@ -7,7 +7,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <?php
-                $Link_gohomepage = url('/homepage');
+                $Link_gohomepage = url('/admin');
                 echo"<a class=\"navbar-brand\" href=$Link_gohomepage>LOGO</a>";
                 ?>
             </div>

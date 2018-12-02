@@ -23,7 +23,7 @@
             <p>This is the admin page.</p>
 
             <?php
-            $link_survey = url('/login');
+            $link_survey = url('/admin/login');
             echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Log in</a></p>";
             ?>
 

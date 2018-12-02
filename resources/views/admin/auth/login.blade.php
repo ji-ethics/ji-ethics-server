@@ -21,7 +21,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-1">.Login</div>
+                        <div class="col-md-10">.</div>
+                        <div class="col-md-1">.<a href="{{ url('/login') }}">User</a></div>
+                    </div>
+                </div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ url('/admin/login') }}">
