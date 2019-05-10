@@ -1,18 +1,6 @@
-<!DOCTYPE html><html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-</head>
-
-<body>
-
+@extends('admin.Header')
+@section('content')
 <div class="padding">
 
     <?php
@@ -26,11 +14,12 @@
 
                 {{ csrf_field() }}
                 <?php
+
                 echo "<br/>";
                 echo "<br/>";
                 echo "<label>Section ID</label>";
                 echo "<div class=\"form-group\">";
-                echo"<textarea name=\"section_id\"  id=\"content\" class=\"form-control\" placeholder=\"Input section id in the box (only a number please).\">";
+                echo"<textarea name=\"section_id\"  class=\"form-control\" placeholder=\"Input section id in the box (only a number please).\">";
 
                 echo"</textarea>";
                 echo "</div>";
@@ -38,20 +27,20 @@
 
                 echo "<label>Question ID</label>";
                 echo "<div class=\"form-group\">";
-                echo "<textarea name=\"question_id\"  id=\"content\" class=\"form-control\"  placeholder=\"Input question id in the box (only a number please).\">";
+                echo "<textarea name=\"question_id\"   class=\"form-control\"  placeholder=\"Input question id in the box (only a number please).\">";
 
                 echo "</textarea>";
                 echo "</div>";
 
                 echo "<label>Question details</label>";
                 echo "<div class=\"form-group\">";
-                echo "<textarea name=\"question_detail\"  id=\"content\" class=\"form-control\"  placeholder=\"Input question title in the box\">";
+                echo "<textarea name=\"question_detail\" class=\"form-control\"  placeholder=\"Input question title in the box\">";
 
                 echo "</textarea>";
                 echo "</div>";
 
                 echo "<div class=\"form-group\" style=\"display:none;\">";
-                echo"<textarea name=\"chapter_id\"  id=\"content\" style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+                echo"<textarea name=\"chapter_id\" style=\"height:80px;max-height:500px;\" class=\"form-control\">";
                 echo $id;
                 echo"</textarea>";
                 echo "</div>";
@@ -106,7 +95,4 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
-</body>
-
-</html>
+@endsection

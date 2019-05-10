@@ -8,36 +8,44 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Global Applied Ethics</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
+    @section('style')
+    <style>
+        body { padding-top: 70px; padding-bottom: 70px;}
+    </style>
+    @show
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                    <?php
+                    $Link_gohomepage = url('/homepage');
+                    echo"<a class=\"navbar-brand\" href=$Link_gohomepage>"
+                    ?>
+                    <img src="{{ asset('image/JILOGO.png') }}" width="200" alt="Brand"/>
+                    <?php
+                    echo"</a>";
+                    ?>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -54,7 +62,7 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
@@ -66,6 +74,7 @@
                                 </ul>
                             </li>
                         @endguest
+                        {{--<li><a href="#"><b>中文</b></a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -74,7 +83,15 @@
         @yield('content')
     </div>
 
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
+        <div class="container-fluid text-center">
+            {{--<p class="navbar-text navbar-left"> Design and code by team </p>--}}
+            <p class="navbar-text"> Copyright 2018.  </p>
+        </div>
+    </nav>
     <!-- Scripts -->
+    @section('script')
     <script src="{{ asset('js/app.js') }}"></script>
+    @show
 </body>
 </html>

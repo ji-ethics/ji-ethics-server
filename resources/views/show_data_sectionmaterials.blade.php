@@ -1,19 +1,5 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-
-</head>
-
-<body>
-
+@extends('admin.Header')
+@section('content')
 <div class="padding">
 <?php
     echo"<div><h1>Check the content of Chapter $id</h1></div>";
@@ -64,7 +50,7 @@
             echo"<h2>Section Question Table</h2>";
             echo"<table class=\"table table-hover\">";
             echo"<tr>";
-            echo"<th>Section id</th><th>Question id</th><th>Question title</th><th>Link to delete</th>";
+            echo"<th>Section id</th><th>Question id</th><th>Question title</th><th>Link to Modify</th><th>Link to delete</th>";
             echo"</tr>";
 
 
@@ -83,8 +69,11 @@
                 echo"<th>$question_id</th>";
                 echo"<th>$question</th>";
 
+                $link_mod = url("/modify/section/$chapter_id/$section_id/question/$question_id");
+                echo"<th><a class=\"btn btn-default\" href= $link_mod>modify</a></th>";
                 $link_delete = url("/delete/section/$chapter_id/$section_id/question/$question_id");
                 echo"<th><a href=$link_delete onclick = \"return confirm('Do you wanna delete the data?');\" class=\"btn btn-default\" >delete</a></th>";
+
                 echo"</tr>";
             }
             echo"</table>";
@@ -113,7 +102,4 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
-</body>
-
-</html>
+@endsection

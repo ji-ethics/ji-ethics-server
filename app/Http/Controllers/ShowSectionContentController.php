@@ -20,11 +20,12 @@ class ShowSectionContentController extends Controller
         $section_question = DB::table('section_question')
             ->join('sections','section_question.section_id','=','sections.id')
             ->join('chapter_section','sections.id','=','chapter_section.section_id')
-            ->select('section_question.question_id','section_question.question','sections.rank as section_rank','chapter_section.chapter_id as chapter_id')
-            ->where('chapter_id','=',$id)
-            ->orderBy('chapter_id')
+            ->select('section_question.question_rank as question_id','section_question.detail as question','sections.rank as section_rank','chapter_section.chapter_id as chapter_id')
+            ->where('chapter_section.chapter_id','=',$id)
             ->orderBy('section_rank')
-            ->orderBy('section_question.question_id')->get();
+            ->orderBy('section_question.question_rank')
+            ->orderBy('section_question.question_rank')->get();
+
 
         return view('show_data_sectionmaterials', compact('sections','section_question','id'));
     }//

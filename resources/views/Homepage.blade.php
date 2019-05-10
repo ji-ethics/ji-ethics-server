@@ -1,30 +1,21 @@
-<!DOCTYPE html><html lang="en">
-<head>
+@extends('layouts.app')
 
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Homepage</title>
-</head>
-
-<body>
-@include('Header')
+@section('content')
 
 @guest
     <div class="jumbotron">
         <div class="container">
             <h1>Welcome</h1>
-            <p>This is a study webpage for you to learn and test engineering ethics. As a guest, you cannot get enough information. Please Log in first.</p>
-
             <?php
-            $link_survey = url('/login');
-            echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Log in</a></p>";
+            $link_login = url('/login');
+            $link_register = url('/register');
+            $link_umji = "http://umji.sjtu.edu.cn";
+            $link_book = "https://www.elsevier.com/books/global-engineering-ethics/luegenbiehl/978-0-12-811218-2";
+            echo"<p>This site hosts content and collects information related to applied ethics and moral psychology. To access educational modules and complete surveys, please <a href = $link_register>register</a> or <a href = $link_login>login</a>.</p>";
+            echo"<p>It is the result of interdisciplinary education and research efforts by faculty members, administrators, and students in philosophy, computer science, social psychology, mathematics, and international education at the <a href = $link_umji>University of Michigan-Shanghai Jiao Tong University Joint Institute</a>, and Institute of Social Cognitive and Behavioral Science, Shanghai Jiao Tong University.</p>";
+            echo"<p>Scandals involving ethics within engineering, business, and medicine negatively affect members of the public, corporations, and governments. Effective ethics training is necessary to address these problems, as well as to raising the reputations of individuals, organizations, and institutions that value ethics and engage in ethical behaviors. To do so, this site provides educational materials on applied ethics, as well as collects information regarding what people think is right and wrong and why, to further develop ethics curricula and contribute to the development of character and perspectives crucial to international leadership, professionalism, and citizenry. </p>";
+            echo"<p>Potential partners in education and industry are encouraged to contact Rockwell Clancy regarding the possibility of using this site in courses, corporate, or professional training: rockwell.clancy@sjtu.edu.cn</p>";
+            echo"<p>The educational modules included herein are based on materials abridged from <a href = $link_book><i>Global Engineering Ethics</i></a>, used with the permission of the authors and Elsevier Press. These should not be reproduced without the permission of the authors, Heinz Luegenbiehl and Rockwell Clancy: rockwell.clancy@sjtu.edu.cn.</p>";
             ?>
 
         </div>
@@ -50,28 +41,30 @@
     ?>
 
 @else
+
     <div class="jumbotron">
         <div class="container">
-            <h1>Welcome</h1>
-            <p>This is a study webpage for you to learn and test engineering ethics. You can first do the following survey to have a primary impression.</p>
+            <h1> Welcome back, {{ Auth::user()->user_name }}</h1>
+        <?php
 
-            <?php
-            $link_survey = url('/surveys/1');
-            echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Start The Survey</a></p>";
+            echo"<p>As a user, you can complete surveys and educational materials on applied ethics</p>";
+            $link_survey = url('/chooseonesurvey');
+            echo"<p><a class=\"btn btn-primary btn-lg\" href=$link_survey role=\"button\">Start the Survey</a></p>";
             ?>
 
         </div>
     </div>
 
+    <div class="container-fluid">
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail">
-                <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
+                <img src="https://images.unsplash.com/photo-1504711331083-9c895941bf81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="300px" alt="img-thumbnail"/>
                 <div class="caption">
                     <div class="text-center">
                         <h3>News</h3>
-                        <p>The recent new about VG496</p>
+                        <p>Updates about the project</p>
                         <p><a class="btn btn-primary" role="button">Learn More</a> </p>
                     </div>
                 </div>
@@ -80,7 +73,7 @@
 
         <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="thumbnail">
-                <img src="{{ asset('image\200_200.jpg') }}" height="200" width="200" alt="img-thumbnail"/>
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" width="300px" alt="img-thumbnail"/>
                 <?php
                 echo"<div class=\"caption\">";
 
@@ -101,10 +94,9 @@
                 ?>
             </div>
         </div>
-        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        {{--<div class="col-xs-1 col-sm-2 col-md-2"></div>--}}
+    </div>
     </div>
 @endguest
-@include('Footer')
-</body>
-<script src="{{ asset('js/app.js') }}"></script>
-</html>
+
+@endsection

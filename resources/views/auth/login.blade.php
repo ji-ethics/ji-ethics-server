@@ -1,36 +1,20 @@
-<!DOCTYPE html><html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Homepage</title>
-</head>
-
-<body>
-{{--@extends('Header')--}}
-@include('Header')
-{{--@section('content')--}}
+@extends('layouts.app')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-1">Login</div>
-                        <div class="col-md-10"></div>
-                        <div class="col-md-1"><a href="{{ url('/admin/login') }}">Admin</a></div>
+                        <div class="col-md-2">User Login</div>
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1"><a href="{{ url('/admin/login') }}" style="float:right">Admin</a></div>
                     </div>
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('mylogin') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -61,15 +45,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-md-6 col-md-offset-4">--}}
+                                {{--<div class="checkbox">--}}
+                                    {{--<label>--}}
+                                        {{--<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
@@ -77,9 +61,9 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                                {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
+                                    {{--Forgot Your Password?--}}
+                                {{--</a>--}}
                             </div>
                         </div>
                     </form>
@@ -88,7 +72,15 @@
         </div>
     </div>
 </div>
-{{--@endsection--}}
+@endsection
 
-</body>
-</html>
+@section('script')
+    @parent
+    <script>
+        function changeFooter(){
+            var footer = document.getElementById('footer');
+            footer.setAttribute('class',('navbar navbar-inverse navbar-fixed-bottom'))
+        }
+        changeFooter()
+    </script>
+    @endsection

@@ -1,18 +1,5 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-</head>
-
-<body>
-
+@extends('layouts.app')
+@section('content')
 <div class="padding">
 
     <div class="text-center"><h1>Error Page</h1></div>
@@ -28,6 +15,4 @@
 </div>
 
 
-</body>
-
-</html><?php
+@endsection

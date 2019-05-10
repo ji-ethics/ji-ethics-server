@@ -1,18 +1,5 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-</head>
-
-<body>
-
+@extends('admin.Header')
+@section('content')
 <div class="padding">
 
     <div><h1>Study material</h1></div>
@@ -62,14 +49,14 @@
     echo "<h3>Add a new chapter</h3>";
     echo "<label>Chapter ID</label>";
     echo "<div class=\"form-group\">";
-    echo"<textarea name=\"id\"  id=\"content\" class=\"form-control\" placeholder=\"Input new chapter id in the box (only a number please).\">";
+    echo"<textarea name=\"id\"   class=\"form-control\" placeholder=\"Input new chapter id in the box (only a number please).\">";
 
     echo"</textarea>";
     echo "</div>";
 
     echo "<label>Chapter Title</label>";
     echo "<div class=\"form-group\">";
-    echo "<textarea name=\"title\"  id=\"content\"  style=\"height:60px\" class=\"form-control\" placeholder=\"Input new chapter title in the box\">";
+    echo "<textarea name=\"title\"    style=\"height:60px\" class=\"form-control\" placeholder=\"Input new chapter title in the box\">";
 
     echo "</textarea>";
     echo "</div>";
@@ -134,7 +121,4 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
-</body>
-
-</html>
+@endsection

@@ -1,20 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Admin</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
+    @section('style')
+        <style type="text/css">
+            body { padding-top: 70px; }
+            .left-side-menu { float: left ; width: 15%;}
+            /*.page-contents { margin-left: 15%; }*/
+        </style>
+    @show
+</head>
+<body>
 
 
-
-
-    <nav class="navbar navbar-default ">
+<div id="app">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <?php
                 $Link_gohomepage = url('/admin');
-                echo"<a class=\"navbar-brand\" href=$Link_gohomepage>LOGO</a>";
+                echo"<a class=\"navbar-brand\" href=$Link_gohomepage>"
+                ?>
+                <img src="{{ asset('image/JILOGO.png') }}" width="200" alt="Brand"/>
+                <?php
+                echo"</a>";
                 ?>
             </div>
 
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
 
-            <div>
+
+                <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
                     @guest('admin')
                         <li><a href="{{ url('/admin/login') }}">Login</a></li>
                     @else
@@ -38,36 +71,31 @@
                             </ul>
                         </li>
                     @endguest
-
-
-                <?php
-                    $Link_gohomepage = url('/homepage');
-                    echo"<li><a href=$Link_gohomepage><b>About</b></a></li>";
-                ?>
-<!--                    --><?php
-//                        // figure the logging status and read the user name
-//
-//                        $json_string = file_get_contents('database/user.json');
-//                        $data = json_decode($json_string,true);
-//                        foreach ($data["user"] as $key => $value) {
-//                            if($value["is_active"] == "1"){
-//                                $results = $value["name"];
-//                                echo "<li><a href=\"#\"><b>$results</b></a></li>";
-//                            } else{
-//                                echo "<li><a href=\"#\"><b>Login</b></a></li>";
-//                            }
-//                        }
-//
-//                    ?>
-
-                    <li><a href="#"><b>中文</b></a></li>
-
+                    {{--<li><a href="#"><b>中文</b></a></li>--}}
                 </ul>
             </div>
-
-            </div><!-- /.navbar-collapse -->
         </div>
     </nav>
+    {{--<div class="left-side-menu">--}}
+        {{--<ul class="nav nav-pills nav-stacked">--}}
+            {{--<li role="presentation" class="active"><a href="#">Home</a></li>--}}
+            {{--<li role="presentation"><a href="#">Profile</a></li>--}}
+            {{--<li role="presentation"><a href="#">Messages</a></li>--}}
+        {{--</ul>--}}
+    {{--</div>--}}
+
+    <div class="page-contents">
+        @yield('content')
+    </div>
+</div>
+
+
+<!-- Scripts -->
+@section('script')
+    <script src="{{ asset('js/app.js') }}"></script>
+@show
+</body>
+</html>
 
 
 

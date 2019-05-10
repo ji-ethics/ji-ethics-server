@@ -2,13 +2,17 @@
 
 
 
-    <nav class="navbar navbar-default ">
+    <nav class="navbar navbar-default   navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <?php
                 $Link_gohomepage = url('/homepage');
-                echo"<a class=\"navbar-brand\" href=$Link_gohomepage>LOGO</a>";
+                echo"<a class=\"navbar-brand\" href=$Link_gohomepage>"
+                ?>
+                    <img src="{{ asset('image/JILOGO.png') }}" width="200" alt="Brand"/>
+                <?php
+                echo"</a>";
                 ?>
             </div>
 
@@ -41,10 +45,7 @@
                     @endguest
 
 
-                <?php
-                    $Link_gohomepage = url('/homepage');
-                    echo"<li><a href=$Link_gohomepage><b>About</b></a></li>";
-                ?>
+
 <!--                    --><?php
 //                        // figure the logging status and read the user name
 //
@@ -67,8 +68,10 @@
             </div>
 
             </div><!-- /.navbar-collapse -->
-        </div>
+
     </nav>
+    <br/>
+    <br/><br/><br/><br/><br/>
 
 
 

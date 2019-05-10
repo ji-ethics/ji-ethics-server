@@ -1,31 +1,14 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Homepage</title>
-</head>
-
-<body>
-{{--@extends('Header')--}}
-@include('admin.Header')
-{{--@section('content')--}}
+@extends('admin.Header')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-1">Login</div>
-                        <div class="col-md-10"></div>
-                        <div class="col-md-1"><a href="{{ url('/login') }}">User</a></div>
+                        <div class="col-md-2">Admin Login</div>
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1"><a href="{{ url('/login') }}" style="float:right">User</a></div>
                     </div>
                 </div>
 
@@ -61,15 +44,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-md-6 col-md-offset-4">--}}
+                                {{--<div class="checkbox">--}}
+                                    {{--<label>--}}
+                                        {{--<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
@@ -86,7 +69,4 @@
         </div>
     </div>
 </div>
-{{--@endsection--}}
-
-</body>
-</html>
+@endsection

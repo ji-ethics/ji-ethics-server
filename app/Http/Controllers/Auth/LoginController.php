@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Validation;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\http\request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -38,11 +40,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-//    public function mylogin(Request $request)
-//    {
-//        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'is_active' => 1])) {
-//            return redirect()->intended('/');
-//        }
-//
-//    }
+    public function mylogin(Request $request)
+    {
+        $this->validate(request(),[
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'is_active' => 1])) {
+            return redirect('/');
+            //return redirect()->intended('/');
+        }
+        else {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                $this->username() => [trans('auth.failed')],
+            ]);
+        }
+    }
 }

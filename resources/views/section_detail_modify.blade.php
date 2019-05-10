@@ -1,18 +1,5 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-</head>
-
-<body>
-
+@extends('admin.Header')
+@section('content')
 <div class="padding">
 
     <?php
@@ -35,30 +22,30 @@
                     $pre_section_title = $sec_details['title'];
                     $pre_section_details = $sec_details['detail'];
 
-                    $pre_section_details = str_replace("<br/>","\r\n",$pre_section_details);
+                    $pre_section_details = str_replace("<br/>","\n",$pre_section_details);
 
                     echo "<label>Section Title</label>";
                     echo "<div class=\"form-group\">";
-                    echo "<textarea name=\"title\"  id=\"content\"  style=\"height:60px\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
+                    echo "<textarea name=\"title\"    style=\"height:60px\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
                     echo "$pre_section_title";
                     echo "</textarea>";
                     echo "</div>";
 
                     echo "<label>Section Details</label>";
                     echo "<div class=\"form-group\">";
-                    echo "<textarea name=\"detail\"  id=\"content\"  style=\"height:300px\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
+                    echo "<textarea name=\"detail\"    style=\"height:300px\" class=\"form-control\" placeholder=\"Please input your answer in the box\">";
                     echo "$pre_section_details";
                     echo "</textarea>";
                     echo "</div>";
 
                     echo "<div class=\"form-group\" style=\"display:none;\">";
-                    echo"<textarea name=\"chapter_id\"  id=\"content\" style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+                    echo"<textarea name=\"chapter_id\"   style=\"height:80px;max-height:500px;\" class=\"form-control\">";
                     echo $id;
                     echo"</textarea>";
                     echo "</div>";
 
                     echo "<div class=\"form-group\" style=\"display:none;\">";
-                    echo"<textarea name=\"section_id\"  id=\"content\" style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+                    echo"<textarea name=\"section_id\"   style=\"height:80px;max-height:500px;\" class=\"form-control\">";
                     echo $section_id;
                     echo"</textarea>";
                     echo "</div>";
@@ -108,7 +95,4 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
-</body>
-
-</html>
+@endsection

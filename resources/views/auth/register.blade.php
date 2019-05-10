@@ -1,22 +1,6 @@
-<!DOCTYPE html><html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Homepage</title>
-</head>
-
-<body>
-{{--@extends('layouts.app')--}}
-@include('Header')
-{{--@section('content')--}}
+@extends('layouts.app')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -118,6 +102,4 @@
         </div>
     </div>
 </div>
-{{--@endsection--}}
-</body>
-</html>
+@endsection

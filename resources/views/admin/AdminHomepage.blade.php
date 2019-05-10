@@ -1,20 +1,15 @@
-<!DOCTYPE html><html lang="en">
-<head>
+@extends('admin.Header')
 
-    <meta charset="UTF-8">
+@section('style')
+    @parent
+    <style>
+        .dash-panel {width: 90%; height: 90%;}
+        .panel-body {height: 40%}
+        /*.footer-btn {float:right}*/
+    </style>
+@endsection
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Homepage</title>
-</head>
-
-<body>
-@include('admin.Header')
+@section('content')
 
 @guest('admin')
     <div class="jumbotron">
@@ -37,75 +32,96 @@
 
         <div><h1>Administer Page</h1></div>
 
-
+        <div class="container">
         <div class="row">
             <div class="col-xs-1 col-sm-2 col-md-2"></div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <div>
-                        <h3>Study material</h3>
-                        <p>Adjusting the study material </p>
+                <div class="panel panel-primary dash-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Study material</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Adjusting the study material. </p>
+
+                    </div>
+                    <div class="panel-footer">
                         <?php
                         $tmp1 = url("showstudymaterial");
-                        echo "<p><a href = $tmp1  class=\"btn btn-primary\" role=\"button\">Material Management</a></p>"
+                        echo "<a href = $tmp1  class=\"btn btn-primary footer-btn\" role=\"button\">Material Management</a>"
 
                         ?>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="thumbnail">
+                <div class="panel panel-primary dash-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Manage the user</p>
 
+                    </div>
+                    <div class="panel-footer">
+                        <?php
+                        $tmp2 = url("/users");
+                        echo "<a href = $tmp2  class=\"btn btn-primary footer-btn\" role=\"button\">User Management</a>"
 
-                    <h3>User</h3>
-
-                    <p>Manage the user</p>
-                    <?php
-                    $tmp2 = url("/admin/user");
-                    echo "<p><a href = $tmp2  class=\"btn btn-primary\" role=\"button\">User Management</a></p>"
-
-                    ?>
+                        ?>
+                    </div>
                 </div>
+
             </div>
             <div class="col-xs-1 col-sm-2 col-md-2"></div>
         </div>
-
+        </div>
+        <div class="container">
         <div class="row">
             <div class="col-xs-1 col-sm-2 col-md-2"></div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="thumbnail">
-                    <div>
-                        <h3>Survey Management</h3>
+                <div class="panel panel-primary dash-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Survey Management</h3>
+                    </div>
+                    <div class="panel-body">
                         <p>Adjusting the Survey question</p>
+
+                    </div>
+                    <div class="panel-footer">
                         <?php
-                        $tmp3 = url("/admin/data");
-                        echo "<p><a href = $tmp3  class=\"btn btn-primary\" role=\"button\">Check</a></p>"
+                        $tmp3 = url("/showsurvey");
+                        echo "<a href = $tmp3  class=\"btn btn-primary footer-btn\" role=\"button\">Check</a>"
 
                         ?>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="thumbnail">
+                <div class="panel panel-primary dash-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">View answers</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>View the answer of the students</p>
 
+                    </div>
+                    <div class="panel-footer">
+                        <?php
+                        $tmp4= url("/showResult");
+                        echo "<a href = $tmp4  class=\"btn btn-primary footer-btn\" role=\"button\">View Answer</a>"
 
-                    <h3>Data Analysis</h3>
-
-                    <p>Data Analysis Check</p>
-                    <?php
-                    $tmp4= url("/admin/data");
-                    echo "<p><a href = $tmp4  class=\"btn btn-primary\" role=\"button\">Data Analysis Result</a></p>"
-
-                    ?>
+                        ?>
+                    </div>
                 </div>
+
             </div>
             <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        </div>
         </div>
     </div>
 @endguest
-@include('Footer')
-</body>
-<script src="{{ asset('js/app.js') }}"></script>
-</html>
+@endsection
