@@ -91,6 +91,10 @@ class CaseStudyController extends Controller
                 });
             }
         }
+        if(!$case_step_id ==10){
+            $case_step_id = $case_step_id+1;
+            
+        }
         return redirect("/casestudy/$case_id/step/$case_step_id");
 
 
