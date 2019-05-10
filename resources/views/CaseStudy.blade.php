@@ -172,9 +172,8 @@
                 }
 ///////////////////////////////////////////////////////////////////////////////
 
-
-            #submit is at here
-            echo"<button type=\"submit\" class=\"btn btn-default\" >submit</button>";
+                           
+		echo "<button type=\"submit\" class=\"btn btn-default\">submit</button>";
             echo "<br/>";
             echo "<br/>";
             ?>
@@ -437,10 +436,10 @@
 @endsection
 @section('script')
 @parent
-        <script type="text/javascript">
-        function CheckIP(){
-            for (var i=0;i<=4;i++){
-    var check = document.getElementsByName("question_answer[]")[i].value;
+		<script type="text/javascript">
+		function CheckIP(){
+			for (var i=0;i<=4;i++){
+	var check = document.getElementsByName("question_answer[]")[i].value;
 if (check==""){
 alert("You must answer ALL questions!");
 return false;

@@ -37,7 +37,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+			</div>
 
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <label for="last_name" class="col-md-4 control-label">Last Name</label>
@@ -48,6 +48,55 @@
                                 @if ($errors->has('last_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+			</div>
+
+                            <div class="form-group{{ $errors->has('section_num') ? ' has-error' : '' }}">
+                              <label for="section_num" class="col-md-4 control-label">Section Number</label>
+
+                            <div class="col-md-6">
+                                <input id="section_num" type="text" class="form-control" name="section_num" value="{{ old('section_num') }}" required>
+
+                                @if ($errors->has('section_num'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('section_num') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+			</div>
+
+                 <div class="form-group{{ $errors->has('semester_num') ? ' has-error' : '' }}">
+		    <label for="semester_num" class="col-md-4 control-label">Semester</label>
+
+                 <div class="col-md-6">
+<?php
+                    echo "<select class=\"form-control\" name=\"semester_num\" style=\"width:300px;\">";
+		    echo "<option value=\"SP2019\">SU2019</option>";
+		    echo "<option value=\"SP2019\">FA2019</option>";
+                    echo "<option value=\"SP2019\">SP2020</option>";
+		    echo "<option value=\"SP2019\">SU2020</option>";
+ 		    echo "</select>";
+?>
+
+                                @if ($errors->has('section_num'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('section_num') }}</strong>
+                                    </span>
+                                @endif
+		</div>
+                </div>
+
+                        <div class="form-group{{ $errors->has('student_id') ? ' has-error' : '' }}">
+                            <label for="student_id" class="col-md-4 control-label">Student ID</label>
+
+                            <div class="col-md-6">
+                                <input id="student_id" type="text" class="form-control" name="student_id" value="{{ old('student_id') }}" required>
+
+                                @if ($errors->has('student_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('student_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
