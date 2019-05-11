@@ -1,0 +1,154 @@
+
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('user_name') ? ' has-error' : '' }}">
+                            <label for="user_name" class="col-md-4 control-label">User Name</label>
+
+                            <div class="col-md-6">
+                                <input id="user_name" type="text" class="form-control" name="user_name" value="{{ old('user_name') }}" required autofocus>
+
+                                @if ($errors->has('user_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <label for="first_name" class="col-md-4 control-label">First Name</label>
+
+                            <div class="col-md-6">
+                                <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required>
+
+                                @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+			</div>
+
+                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <label for="last_name" class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required>
+
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+			</div>
+
+                            <div class="form-group{{ $errors->has('section_num') ? ' has-error' : '' }}">
+                              <label for="section_num" class="col-md-4 control-label">Section Number</label>
+
+                            <div class="col-md-6">
+                                <input id="section_num" type="text" class="form-control" name="section_num" value="{{ old('section_num') }}" required>
+
+                                @if ($errors->has('section_num'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('section_num') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+			</div>
+
+                 <div class="form-group{{ $errors->has('semester_num') ? ' has-error' : '' }}">
+		    <label for="semester_num" class="col-md-4 control-label">Semester</label>
+
+                 <div class="col-md-6">
+<?php
+                    echo "<select class=\"form-control\" name=\"semester_num\" style=\"width:300px;\">";
+		    echo "<option value=\"SP2019\">SU2019</option>";
+		    echo "<option value=\"SP2019\">FA2019</option>";
+                    echo "<option value=\"SP2019\">SP2020</option>";
+		    echo "<option value=\"SP2019\">SU2020</option>";
+ 		    echo "</select>";
+?>
+
+                                @if ($errors->has('section_num'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('section_num') }}</strong>
+                                    </span>
+                                @endif
+		</div>
+                </div>
+
+                        <div class="form-group{{ $errors->has('student_id') ? ' has-error' : '' }}">
+                            <label for="student_id" class="col-md-4 control-label">Student ID</label>
+
+                            <div class="col-md-6">
+                                <input id="student_id" type="text" class="form-control" name="student_id" value="{{ old('student_id') }}" required>
+
+                                @if ($errors->has('student_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('student_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

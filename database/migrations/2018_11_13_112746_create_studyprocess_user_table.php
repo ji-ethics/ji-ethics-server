@@ -14,8 +14,8 @@ class CreateStudyprocessUserTable extends Migration
     public function up()
     {
         Schema::create('studyprocess_user', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned;
-            $table->integer('chapter_id')->unsigned;
+            $table->integer('user_id')->unsigned();
+            $table->integer('chapter_id')->unsigned();
             $table->primary(['user_id', 'chapter_id']);
             $table->timestamps();
         });

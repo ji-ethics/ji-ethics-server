@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Demographic Information</title>
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\mycss.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-@include('Header1')
+@extends('layouts.app')
+@section('content')
 <div class = "row">
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>
     <div class="col-xs-8 col-sm-8 col-md-8" style="margin:2%;">
         <h2 class="text-center">   Demographic Information    </h2>
         <div>
-            <font size="4">
+                <form action="/info1_get" method="POST">
 
-                <div>
+                    {{ csrf_field()}}
+
+                    <label style="display:none">
+                        <?php
+                        echo "<input name=\"id\" value=\"$id\">"
+                        ?>
+                    </label>
+                    <div>
                     <br/>
                      <label>User type</label>
                     <div class="radio">
                     <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>
+                    <input type="radio" name="usertype" id="" value="student" checked>
                         student
                     </label>
                     </div>
                     <div class="radio">
                     <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
+                    <input type="radio" name="usertype" id="" value="non-student">
                         non-student
                     </label>
                     </div>
@@ -38,9 +33,9 @@
                 <div>
                     <label>Ages</label>
                     <?php
-                    echo "<select class=\"form-control\" style=\"width:300px;\">";
+                    echo "<select class=\"form-control\" name=\"age\" style=\"width:300px;\">";
                     for ($x=18; $x<=100; $x++) {
-                        echo "<option>$x</option>";
+                        echo "<option value = \"$x\">$x</option>";
                     }
                     echo "</select>";
                     ?>
@@ -50,19 +45,19 @@
                     <label>Gender</label>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios2" id="optionsRadios1" value="21" checked>
+                            <input type="radio" name="gender" id="" value="male" checked>
                             male
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios2" id="optionsRadios2" value="22">
+                            <input type="radio" name="gender" id="" value="female">
                             female
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optionsRadios2" id="optionsRadios3" value="23">
+                            <input type="radio" name="gender" id="optionsRadios3" value="other">
                             other
                         </label>
                     </div>
@@ -72,12 +67,12 @@
 
                     <label>Nationality</label>
                     <?php
-                    echo "<select class=\"form-control\" style=\"width:300px;\">";
+                    echo "<select class=\"form-control\" name = \"nationality\" style=\"width:300px;\">";
                     $nationalities = json_decode($nationality, true);
                     foreach ($nationalities as $value) {
                         $id =  $value["id"];
                         $name = $value["name"];
-                        echo "<option>$name</option>";
+                        echo "<option value = \"$name\">$name</option>";
                     }
                     echo "</select>"
                     ?>
@@ -85,21 +80,22 @@
                 <div id="ide">
                     <br/>
                     <label>How do you identify?</label>
-                    <select class="form-control" id="identify" onchange="AddInput(this.id)" style="width:300px;">
-                        <option value="1">Asian</option>
-                        <option value="2">Black </option>
-                        <option value="3">Hispanic</option>
-                        <option value="4">White</option>
-                        <option value="0">Other</option>
+                    <select class="form-control" name = "identification" id="identification" onchange="AddInput(this.id)" style="width:300px;">
+                        <option value="Asian">Asian</option>
+                        <option value="Black">Black </option>
+                        <option value="Hispanic">Hispanic</option>
+                        <option value="White">White</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="text-center">
+
                 <?php
-                $tmp = url("/register/info2");
-                echo "<a href= $tmp><button type=\"submit\" class=\"btn btn-default\"> Next </button></a>"
+                    $tmp = url("/register/info2");
+                echo " <a href= $tmp><button type=\"submit\" class=\"btn btn-default\"> Next </button></a>"
                 ?>
                 </div>
-            </font>
+                </form>
         </div>
     </div>
     <div class="col-xs-1 col-sm-1 col-md-2"> </div>
@@ -114,15 +110,17 @@
 <br/>
 
 
-@include('Footer')
-</body>
+@endsection
+
+@section('script')
+    @parent
 <script type="text/javascript">
 
     function AddInput(x)
     {
         debugger
         var div =document.getElementById(x).parentNode;
-        if  (document.getElementById(x).value=="0")
+        if  (document.getElementById(x).value=="Other")
         {
             var newInput = document.createElement("input");
             newInput.class="form-control selectInput";
@@ -147,3 +145,4 @@
 
 
 </script>
+@endsection

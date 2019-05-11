@@ -1,21 +1,5 @@
-<!DOCTYPE HTML>
-<html lang = "en">
-<head>
-    <meta charset="UTF-8">
-    <title>Surveys for users</title>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-
-<body>
-
-@include('Header')
-
+@extends('layouts.app')
+@section('content')
 
 <div class = "row">
     <div class="col-md-2"></div>
@@ -23,8 +7,9 @@
 
 
     <div class="col-md-8">
-
-        <h1>Survey</h1>
+    <?php
+        echo"<h1>Survey $id</h1>";
+        ?>
         <br/>
         <br/>
         <?php
@@ -42,83 +27,140 @@
                     $question_ch_5 = $content['choice5'];
                     echo "<form>";
                     //echo "<div padding class = \"text-center\">";
-                    echo"<div style= \"font-size:20px\">";
+
                     //echo "<div class=\"thumbnail fixed-top\">";
                     echo "<br/>";
                     echo "<p>Instructions: $question_title</p>";
-                    echo"</div>";
+
                     echo "<div>";
+
                     echo "<br/>";
-                    echo"<div style= \"font-size:15px\">";
                     echo "<p>[0]$question_ch_0</p>";
                     echo "<p>[1]$question_ch_1</p>";
                     echo "<p>[2]$question_ch_2</p>";
                     echo "<p>[3]$question_ch_3</p>";
                     echo "<p>[4]$question_ch_4</p>";
                     echo "<p>[5]$question_ch_5</p>";
-                    echo "</div>";
-                    echo "</div>";
                     //echo "</div>";
+
+                    //echo "</div>";
+                    echo "</div>";
                     echo "</form>";
                         echo "<br/>";
                         echo "<br/>";
                         echo "<br/>";
                 $question_details = json_decode($survey_details,true);
-                //echo"<div style= \"font-size:12px\">";
+                ?>
+        <form action="/surveyanswer_input" method="POST" onsubmit=" return checkIP()">
+            {{ csrf_field()}}
+            <?php
+                $user_id = 1;
+                $counter = 0;
+                echo"<table class=\"table table-hover\">";
+                echo"<tr>";
+                echo"<th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>";
+                echo "<th><div class=\"radio-inline\"  style=\"display:none;\">";
+                echo "<label>";
+                echo "<input type=\"radio\" name=\"aaa\" value=6 checked>";
+                echo 6;
+                echo "</label>";
+                echo "</div></th>";
+                echo "<th><label>The question detail</label></th>";
+                echo"</tr>";
                 foreach ($question_details as $survey_details) {
 
-                    echo "<div>";
+
                     //echo "<li>";
                     $details = $survey_details['detail'];
                     //echo"<div class=\"col-md-1\"></div>";
-                    echo "<select class=\"form-control:focus\">";
+
+
+
+
+                        echo "<div>";
+                        echo"<tr>";
                         for ($x=0; $x<=5; $x++) {
-                            echo "<option>[$x]</option>";
+                            echo "<th><div class=\"radio-inline\">";
+                            echo "<label>";
+                            echo "<input type=\"radio\" name=\"answer[$counter]\" id = \"answer[$counter]\" value=$x checked>";
+                            echo "</label>";
+                            echo "</div></th>";
                         }
-                        echo "</select>";
-                    echo "<label>  $details</label>";
-                    //echo "</li>";
-                    echo "</div>";
-                    echo "<br/>";
-                    }
+
+                        echo "<th><div class=\"radio-inline\"  style=\"display:none;\">";
+                        echo "<label>";
+                        echo "<input type=\"radio\" name=\"answer[$counter]\" id = \"answer[$counter]\" value=6 checked>";
+
+                        echo "</label>";
+
+
+
+                        echo "<div class=\"form-group\" style=\"display:none;\">";
+                        echo"<textarea name=\"survey_id\"   style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+                        echo $id;
+                        echo"</textarea>";
+                        echo "</div>";
+
+                        echo "<div class=\"form-group\" style=\"display:none;\">";
+                        echo"<textarea name=\"id[$counter]\"   style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+                        echo $survey_details['id'];
+                        echo"</textarea>";
+                        echo "</div>";
+
+                        echo "</div></th>";
+                        echo "<th><label>  $details</label></th>";
+                        //echo "</li>";
+                        echo "</div>";
+                        echo"<tr>";
+                    $counter++;
                 }
-                //echo "</div>";
+                echo"</table>";
+                }
             }
+            echo "<div class=\"form-group\" style=\"display:none;\">";
+            echo"<textarea name=\"survey_length\"  id=\"length\" style=\"height:80px;max-height:500px;\" class=\"form-control\">";
+            echo $counter;
+            echo"</textarea>";
+            echo "</div>";
 
         echo "<div class = \"text-center\">";
-        echo "<button type=\"submit\" class=\"btn btn-default\">Submit</button>";
-        $new_id = 0;
-        foreach ($question as $content1) {
-            if($content1['id'] == $id+1)
-                {
-                    $new_id = $id+1;
-                    $link_next = url("/surveys/$new_id");
-                }
-        }
-        if ($new_id == 0)
-            {
-                $link_next = url("SurveyFinished");
-            }
+        echo "<a ><button type = \"submit\" class=\"btn btn-default\">Submit</button></a>";
 
-        echo "<a href=$link_next class=\"btn btn-default\">Next</a>";
-        echo "$new_id";
-        echo "</div>";
+
+
+
+
         ?>
+        </form>
 
-
-
-
+        {{--MyJavaScript--}}
+        {{----}}
+        <script type="text/javascript">
+            function checkIP(){//js表单验证方法
+                var length=document.getElementById("length").value;//通过id获取需要验证的表单元素的值
+                for(var i=0;i<length;i++)
+                {
+                    var check = document.getElementsByName("answer"+"["+i+"]")[6];
+                        if (check.checked) {
+                                alert("Please answer every survey question");//弹出提示
+                                return false;
+                        }
+                }
+                alert("You have already finished this survey. Click yes to leave.");//弹出提示
+                return true;
+            }
+        </script>
+        {{----}}
+        {{--MyJavaScript--}}
 
         <br/>
         <p></p>
     </div>
 
     <div class="col-md-2"></div>
-</div>
+
 
 @include('Footer')
+</div>
 
-</body>
-
-
-</html>
+@endsection

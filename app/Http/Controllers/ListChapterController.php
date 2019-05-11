@@ -43,25 +43,36 @@ class ListChapterController extends Controller
             ->where('chapters.id', '=', $chapter_id)
             ->where('sections.rank', '=', $section_rank)
             ->get();
+        $chapters = DB::table('chapters')
+            ->select('chapters.id')
+            ->where('chapters.id','=',$chapter_id)
+            ->get();
         //!empty($sections['id'])
         if (count($sections) != 0) {
             $reture_url=url("/admin/material/add");
             $errordata="The section already exist";
             return view('Error_Page',$reture_url,$errordata);
         } else {
-            DB::transaction(function () use ($chapter_id, $section_rank, $section_title, $section_detail) {
-                $section_id = DB::table('sections')
-                    ->insertGetId([
-                        'rank' => $section_rank,
-                        'title' => $section_title,
-                        'detail' => $section_detail
-                    ]);
-                DB::table('chapter_section')
-                    ->insert([
-                        'chapter_id' => $chapter_id,
-                        'section_id' => $section_id
-                    ]);
-            });
+            if(count($chapters) != 0){
+//                DB::transaction(function () use ($chapter_id, $section_rank, $section_title, $section_detail) {
+//                    $section_id = DB::table('sections')
+//                        ->insertGetId([
+//                            'rank' => $section_rank,
+//                            'title' => $section_title,
+//                            'detail' => $section_detail
+//                        ]);
+//                    DB::table('chapter_section')
+//                        ->insert([
+//                            'chapter_id' => $chapter_id,
+//                            'section_id' => $section_id
+//                        ]);
+//                });
+            } else {
+                $reture_url=url("/admin/material/add");
+                $errordata="The chapter does not exist";
+                return view('Error_Page',$reture_url,$errordata);
+            }
+
         }
 
 
@@ -101,21 +112,9 @@ class ListChapterController extends Controller
                         'detail' => $section_detail
                     ]);
             });
-        } else {
-            DB::transaction(function () use ($chapter_id, $section_rank, $section_title, $section_detail) {
-                $section_id = DB::table('sections')
-                    ->insertGetId([
-                        'rank' => $section_rank,
-                        'title' => $section_title,
-                        'detail' => $section_detail
-                    ]);
-                DB::table('chapter_section')
-                    ->insert([
-                        'chapter_id' => $chapter_id,
-                        'section_id' => $section_id
-                    ]);
-            });
-        }
+        } //else {
+//            ;//
+//        }
 
 
         return view('administer_material_section');

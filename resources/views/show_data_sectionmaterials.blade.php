@@ -1,18 +1,5 @@
-<!DOCTYPE html><html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-grid.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-reboot.css') }}">
-    <link rel="stylesheet" href="{{ asset('\css\bootstrap-theme.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homepage</title>
-</head>
-
-<body>
-
+@extends('admin.Header')
+@section('content')
 <div class="padding">
 <?php
     echo"<div><h1>Check the content of Chapter $id</h1></div>";
@@ -21,6 +8,7 @@
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-12 col-sm-8 col-md-8">
+
 
 <?php
 
@@ -46,19 +34,20 @@
                     echo"<th>$section_title</th>";
                     $link_sec = url("/modify/chapter/$chapter_id/section/$section_id");
                     echo"<th><a class=\"btn btn-default\" href= $link_sec>modify</a></th>";
-                    echo"<th><form action=\"/delete/chapter/{$id}/section/{$section_counter}\" method=\"POST\"><button type=\"submit\" class=\"btn btn-default\" >delete</button></form></th>";
+                    $link_delete = url("/delete/chapter/$id/section/$section_counter");
+                    echo"<th><a href=$link_delete onclick = \"return confirm('Do you wanna delete the data?');\" class=\"btn btn-default\" >delete</a></th>";
                     echo"</tr>";
 
         }
         echo"</table>";
-        $link_add_sec = url("/addnewsection/chapter/$id");
+            $link_add_sec = url("/addnewsection/chapter/$id");
 
             echo"<a class=\"btn btn-default\" href= $link_add_sec>Add a new section</a>";
             echo"<br/>";
             echo"<br/>";
             echo"<br/>";
 
-            echo"<h2>Table 3. Section Question Table</h2>";
+            echo"<h2>Section Question Table</h2>";
             echo"<table class=\"table table-hover\">";
             echo"<tr>";
             echo"<th>Section id</th><th>Question id</th><th>Question title</th><th>Link to Modify</th><th>Link to delete</th>";
@@ -79,8 +68,12 @@
                 echo"<th>$section_id</th>";
                 echo"<th>$question_id</th>";
                 echo"<th>$question</th>";
-                $link_sec_que = url("/modify/chapter/$chapter_id/section/$section_id/question/$question_id");
-                echo"<th><a class=\"btn btn-default\" href= $link_sec_que>modify</a></th>";
+
+                $link_mod = url("/modify/section/$chapter_id/$section_id/question/$question_id");
+                echo"<th><a class=\"btn btn-default\" href= $link_mod>modify</a></th>";
+                $link_delete = url("/delete/section/$chapter_id/$section_id/question/$question_id");
+                echo"<th><a href=$link_delete onclick = \"return confirm('Do you wanna delete the data?');\" class=\"btn btn-default\" >delete</a></th>";
+
                 echo"</tr>";
             }
             echo"</table>";
@@ -109,7 +102,4 @@
 
     <div class="col-xs-1 col-sm-2 col-md-2"></div>
 </div>
-</div>
-</body>
-
-</html>
+@endsection
